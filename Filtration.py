@@ -1,7 +1,4 @@
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 url = "./consommation-annuelle-residentielle-par-adresse.csv"
 df = pd.read_csv(url, on_bad_lines='warn', sep=";")
