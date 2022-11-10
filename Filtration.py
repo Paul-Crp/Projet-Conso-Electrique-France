@@ -5,7 +5,7 @@ df = pd.read_csv(url, on_bad_lines='warn', sep=";")
 
 ChoixVilles = ['Aix-en-Provence', "Angers", "Bordeaux", "Brest", "Clermont-Ferrand", "Dijon", "Le Havre", "Le Mans", "Lille", "Lyon", "Marseille", "Montpellier", "Nantes", "Nice", "Nîmes", "Paris", "Reims", "Rennes", "Saint-Denis", "Saint-Étienne", "Toulon", "Toulouse", "Villeurbanne"]
   
-df.drop(df.columns[[1, 2, 3, 4, 5, 6, 7, 9, 12, 13, 14, 15]], axis=1, inplace=True)
+df.drop(df.columns[[1, 2, 3, 4, 5, 6, 7, 9, 14, 15]], axis=1, inplace=True)
 
 df = df[df['Nom de la commune'].str.lower().isin([x.lower() for x in ChoixVilles])]
 
