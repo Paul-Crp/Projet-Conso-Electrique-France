@@ -12,7 +12,7 @@ Partie prédiction:Consiste à trouver le  modéle mathématique aproprié pour 
 
 *Crespin:* Partie visualisation.
 
-*Tamara:* Partie visualisation
+*Thamara:* Partie visualisation
 
 *Emma:* Partie visualisation.
 
