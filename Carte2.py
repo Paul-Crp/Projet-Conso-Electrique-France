@@ -43,5 +43,32 @@ folium.Choropleth(
     line_color='black'
 ).add_to(fmap)
 
+#Ajout des bulles d'infos
+folium.features.GeoJson(
+                    data=df_final,
+                    name='Consommation éléctrique annuelle moyenne',
+                    smooth_factor=2,
+                    style_function=lambda x: {'color':'black','fillColor':'transparent','weight':0.5},
+                    tooltip=folium.features.GeoJsonTooltip(
+                        fields=['Nom de la commune',
+                                'Consommation annuelle moyenne de la commune (MWh)',
+                                ],
+                        aliases=["Ville :",
+                                "Consommation annuelle moyenne (en MWh):",
+                                ], 
+                        localize=True,
+                        sticky=False,
+                        labels=True,
+                        style="""
+                            background-color: #F0EFEF;
+                            border: 2px solid black;
+                            border-radius: 3px;
+                            box-shadow: 3px;
+                            """,
+                        max_width=800,),
+                            highlight_function=lambda x: {'weight':3,'fillColor':'grey'},
+                        ).add_to(fmap)   
+
+
 fmap.save('Carte2.html')
 
