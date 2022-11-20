@@ -71,7 +71,7 @@ import matplotlib.pyplot as plt
 Ndf.rename(columns={'Consommation (MW)':'Consommation'},inplace = True)
 autocorrelation_plot(Ndf.Consommation)
 
-# lag_acf=acf(Ndf,nlags=13960)
+lag_acf=acf(Ndf,nlags=13960)
 # lag_pacf=pacf(Ndf,nlags=6215)
 
 # fig, ax=plt.subplots(1,2,figsize=(20,5))
