@@ -1,4 +1,4 @@
-import folium, branca
+import folium
 
 def carte(df_final, df_geo):
     fmap = folium.Map(location=[47, 2], tiles='OpenStreetMap', zoom_start=6)
