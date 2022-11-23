@@ -1,37 +1,4 @@
-#%%
 import folium, branca
-# import pandas as pd
-# import geopandas as gpd
-# import os
-# import pooch
-
-#%%
-
-# df = pd.read_csv('../data/TableauTraité.csv')
-# df["Nom de la commune"]=df["Nom de la commune"].str.lower()
-
-# df1 = df.groupby(['Nom de la commune','Année'])[[df.columns[5]]].aggregate(lambda x: x.mean()).reset_index()
-
-# df2 = pd.DataFrame(df1.groupby(['Nom de la commune'])[[df1.columns[2]]].aggregate(lambda x : x.mean())).reset_index()
-
-#%%
-
-# url = "https://static.data.gouv.fr/resources/contours-des-communes-de-france-simplifie-avec-regions-et-departement-doutre-mer-rapproches/20220219-095144/a-com2022.json"
-# path_target = "./commf2020.json"
-# path, fname = os.path.split(path_target)
-# pooch.retrieve(url, path=path, fname=fname, known_hash=None)
-
-# geo=gpd.read_file('../data/commf2020.json')
-# geo=geo[['libgeo','geometry']]
-# geo['libgeo']=geo['libgeo'].str.lower()
-
-#%%
-
-# df_final = geo.merge(df2, left_on='libgeo', right_on='Nom de la commune',how='outer')
-# df_final=df_final[~df_final['geometry'].isna()]
-# df_final=df_final.dropna()
-
-#%%
 
 def carte(df_final, df_geo):
     fmap = folium.Map(location=[47, 2], tiles='OpenStreetMap', zoom_start=6)
@@ -49,10 +16,6 @@ def carte(df_final, df_geo):
             line_color='black'
         ).add_to(fmap)
     return(fmap)
-    
-
-# %%
-#Add Customized Tooltips to the map
 
 def legend(df_final,fmap):
     folium.features.GeoJson(
