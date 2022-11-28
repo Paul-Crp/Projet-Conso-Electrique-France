@@ -5,28 +5,14 @@ import json
 import requests
 import pandas as pd
 import os
+import geopandas as gpd
 
-#Partitionner la carte en départements
-#Le geojson représente les coordonnées de nos départements.
-geojson_url = 'https://france-geojson.gregoiredavid.fr/repo/departements.geojson'
+#Partitionner la carte en communes
+#Le geojson représente les coordonnées de nos communes.
+geojson_url = 'https://www.data.gouv.fr/fr/datasets/r/fb3580f6-e875-408d-809a-ad22fc418581'
 response = requests.get(geojson_url)
 geojson = response.json()
-#geojson
 
-
-
-#Création d'un dictionnaire
-#state_id_map = {}
-#for feature in geojson['features']:
-#   feature['id'] = feature['properties']['code']
-#    state_id_map[feature['properties']['nom']] = feature['id']
-    
-#state_id_map
-
-
-
-
-print(os.getcwd())
 
 
 #Tableau du jeu de donnée (filtré) qu'on veut afficher sur la carte 
@@ -37,10 +23,10 @@ df.head()
 
 
 
-#on définit l'indicateur de la carte 
-indicateur = 'Consommation annuelle moyenne de la commune'
-data = df[df['Consommation annuelle moyenne de la commune (MWh)'] == indicateur]
-data.head()
+
+
+map_df = df[['Nom de la commune', 'Consommation annuelle moyenne de la commune (MWh)']]
+map_df.head()
 
 
 
@@ -54,13 +40,18 @@ M
 #Création de la carte partionner en région
 folium.Choropleth( 
     geo_data=geojson, 
-    data=df, 
-    colums= ['Consommation annuelle moyenne par logement de ladresse (MWh)' , 'Nom de la commune'] , 
+    df=map_df, 
+    colums=['Nom de la commune', 'Consommation annuelle moyenne de la commune (MWh)'] , 
     key_one='feature.id', 
     fill_color='YlGnBu', 
     fill_opacity=0.7, 
     line_opacity=0.2, 
-    legend_name=indicateur).add_to(M)
+).add_to(M)
+
+
+
+
+
 
 
 #Ajouter des marqueurs:
