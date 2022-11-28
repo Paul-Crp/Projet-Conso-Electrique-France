@@ -1,4 +1,12 @@
 ﻿<h1>*Projet :Consommation de l'éléctricité en France*</h1>
+ 
+ 
+ <h2>*Membres du groupe:*</h2>
+ 
+ Thamara Renoir thamara.renoir@etu.umontpellier.fr
+ Oualid Lamrini oualid.lamrini@etu.umontpellier.fr
+ Emma Sinibaldi emma.sinibaldi@etu.umontpellier.fr
+ Paul Crespin: paul.crespin@etu.umontpellier.fr
 
 <h2>*Composition du projet*</h2>
 
