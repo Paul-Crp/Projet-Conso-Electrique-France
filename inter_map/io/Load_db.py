@@ -31,6 +31,7 @@ class Load_db:
             path_target,
             na_values="",
             low_memory=False,
+            sep=";"
         )
 
         return df_db
