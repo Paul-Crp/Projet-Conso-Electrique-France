@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import pooch
-from Interactive_Map.io import url_db, path_target_db
+from inter_map.io import url_db, path_target_db
 
 class Load_db:
     """
@@ -23,7 +23,7 @@ class Load_db:
         A documentation
         
         .. code:: python
-            >>> import biketrauma
+            >>> import inter_map
             >>> Load_db.save_as_df()
         """
         
