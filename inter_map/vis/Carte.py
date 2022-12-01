@@ -5,8 +5,8 @@ def carte(df_final, df_geo):
     folium.Choropleth(
             geo_data=df_geo,
             data=df_final,
-            columns=['Nom de la commune', 'Consommation annuelle moyenne de la commune (MWh)'],
-            key_on='feature.properties.libgeo',
+            columns=['Département', 'Consommation annuelle moyenne de la commune (MWh)'],
+            key_on='feature.properties.code',
             fill_color='YlOrRd', 
             nan_fill_color='White',
             fill_opacity=0.7, 
