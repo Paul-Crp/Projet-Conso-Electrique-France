@@ -24,8 +24,8 @@ class Load_geo:
         A documentation
         
         .. code:: python
-            >>> import biketrauma
-            >>> Load_db.save_as_df()
+            >>> import inter_map
+            >>> Load_geo.save_as_df()
         """
         df_geo=gpd.read_file(path_target_geo)
 
