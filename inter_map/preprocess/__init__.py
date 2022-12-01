@@ -1,1 +1,13 @@
-
+Villes=['bourg-en-bresse','saint-quentin','montluçon','manosque','gap','nice','annonay',
+        'charleville-mézières','pamiers', 'troyes', 'narbonne', 'rodez', 'marseille',
+        'caen', 'aurillac', 'angoulême', 'la rochelle', 'bourges', 'brive-la-gaillarde',
+        'dijon', 'saint-brieuc', 'guéret', 'périgueux', 'besançon', 'valence', 'évreux',
+        'chartres','brest', 'nîmes', 'toulouse','auch','bordeaux','montpellier','rennes',
+        'châteauroux','tours','saint-martin-d\'hères','dole','mont-de-marsan','blois','saint-étienne',
+        'le puy-en-velay','nantes','orléans','cahors','agen','mende','angers','cherbourg-en-cotentin',
+        'reims','saint-dizier','laval','nancy','verdun','lorient','thionville','nevers','lille',
+        'beauvais','alençon','calais','clermont-ferrand','pau','tarbes','perpignan','sélestat',
+        'mulhouse','lyon','vesoul','chalon-sur-saône','le mans','chambéry','annecy','paris','le havre',
+        'meaux','versailles','niort','amiens','albi','montauban','toulon','avignon','la roche-sur-yon',
+        'poitiers','limoges','épinal','auxerre','belfort','évry-courcouronnes','boulogne-billancourt',
+        'saint-denis','vitry-sur-seine','argenteuil']
