@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import pooch
 import geopandas as gpd
-from Interactive_Map.io import url_geo, path_target_geo
+from inter_map.io import url_geo, path_target_geo
 
 class Load_geo:
     """
