@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from inter_map.preprocess import Villes
+from intermap.preprocess import Villes
 
 
 def tri(df_conso):

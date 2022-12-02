@@ -3,17 +3,23 @@ import pandas as pd
 import numpy as np
 import os
 import pooch
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 def dataframe():
-    """ Preprocessing data 
-
-    Returns 
-    -------
-    datafinal :la concatenation des data de 01/01/2019  à 30/11/2022
-    
-    
-    
+    """Download .
+    Moreover, there are functions who display the Mandlebrot set in 2D and 3D with animated video.
+    :param x: coordinate of the image's center
+    :type x: float
+    :param y: coordinate on the Imaginary axis
+    :type y: float
+    :param facteur: the remoteness of the image's center
+    :type facteur: float
+    :param t_max: the iteration's number of the sequence (zn)
+    :type t_max: integer
+    :param precision: number of terms in the array (using to build the image)
+    :type precision: integer
     """
     # ___________________Création du Data 2019_________________________
 
