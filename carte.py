@@ -22,22 +22,20 @@ df.head()
 #df['Année'].min(), df['Année'].max()
 
 
+df["Nom de la commune"]=df["Nom de la commune"].str.lower()
+
+df1 = df.groupby(['Nom de la commune','Année'])[[df.columns[5]]].aggregate(lambda x: x.mean()).reset_index()
+df2 = pd.DataFrame(df1.groupby(['Nom de la commune'])[[df1.columns[2]]].aggregate(lambda x : x.mean())).reset_index()
+df_final = df2.dropna()
 
 
-
-map_df = df[['Nom de la commune', 'Consommation annuelle moyenne de la commune (MWh)']]
-map_df.head()
-
-
-
-#Définir un objet, ici notre cartet avec les coordinnées de la France
+#Création carte de la France
 M = folium.Map(location=[46.232192999999995,2.209666999999996], zoom_start=15)
 M
 
 
 
-
-#Création de la carte partionner en région
+#Création de la carte partionner en communes
 folium.Choropleth( 
     geo_data=geojson, 
     df=map_df, 
@@ -51,14 +49,23 @@ folium.Choropleth(
 
 
 
+#ajouter les fonctionnalités d'intércation
+folium.features.GeoJson(
+    data=df_final,
+    style_function= style_function, 
+    control=False,
+    highlight_function=lambda x: {'weight': 3, 'fillColor': 'grey'}, 
+    tooltip=folium.features.GeoJsonTooltip(
+    fields=['Nom de la commune','Consommation annuelle moyenne de la commune (MWh)'],
+    aliases=['Ville: ','Consommation annuelle moyenne (MWh): '],
+    style=("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"),
+    localize=True,
+    sticky=True,
+    labels=True,
+            )
+).add_to(M)
 
 
-
-#Ajouter des marqueurs:
-#Par exemple pour marquer les villes choisies 
-folium.Marker(localisationMontpellier=[43.608292,3.879600], 
-              popup="<stong>Montpellier</stong>").add_to(M)
-folium.Marker(localisationParis=[48.856613,2.352222], popup="<stong>Paris</stong>").add_to(M)
 
 
 #sauvegarder le tout dans un fichier html
