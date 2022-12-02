@@ -5,7 +5,7 @@ def carte(df_final, df_geo):
     """
     Création d'une carte présentant la consommation annuelle moyenne par foyer entre 2018 et 2021 d'une ville par département.
 
-    Parametrers :
+    Paramètres :
     --------------
     df_final : (dataframe) agrégation des données de consommation et des contours des départements
     df_geo : (geson) fichier json contenant les contours des départements
