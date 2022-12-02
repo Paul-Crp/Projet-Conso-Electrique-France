@@ -33,7 +33,8 @@ def tri(df_conso):
         df1 = df_conso[df_conso['Nom de la commune'] == i]
         df = pd.concat([df, df1], ignore_index=True)
 
-    df.to_csv('inter_map/data/TableauTraité.csv', index=False)
+    df.to_csv(os.path.join(os.path.dirname(
+    os.path.realpath(__file__)), "..", "data", "TableauTraité.csv"), index=False)
 
     return (df)
 
