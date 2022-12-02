@@ -5,13 +5,13 @@ from inter_map.io import url_db, path_target_db
 
 class Load_db:
     """
-    This class download the geographic data set
+    Cette classe permet le téléchargement des données de consommation électrique par foyers de 2018 à 2021.
 
     Parameters :
     ---------------
 
-    url : (string) path to the data set
-    target_name : (string) local path where data is saved
+    url : (string) adresse url du jeu de données
+    target_name : (string) chemin local où le jeu de données est enregistrer
     """
     def __init__(self, url=url_db, target_name=path_target_db):
         path, fname = os.path.split(path_target_db)
@@ -20,11 +20,7 @@ class Load_db:
     @staticmethod
     def save_as_df():
         """
-        A documentation
-        
-        .. code:: python
-            >>> import inter_map
-            >>> Load_db.save_as_df()
+        Téléchargement des données dans un dataframe avec le module pandas.
         """
         
         df_db = pd.read_csv(
