@@ -4,7 +4,8 @@ from inter_map.preprocess import Villes
 
 def tri(df_conso):
     """
-    Cette fonction tri les données du data set pour ne conserve qu'une ville par département.
+    Suppression des colonnes non nécessaire à la visualisation et ajout d'une colonne 'Département' contenant le numéro de département de chaque adresse.
+    Tri des données pour conserve la ville la plus peuplée par département.
 
     Paramètres :
     -------------
@@ -36,11 +37,11 @@ def tri(df_conso):
 
 def get_conso(df_conso):
     """
-    Cette fonction extrait du data set de consommation la consommation annuelle moyenne des foyers par ville
+    Cette fonction extrait du jeu de données trié la consommation moyenne annuelle par habitant d'une ville par département.
 
-    Parameters :
+    Paramètres :
     --------------
-    df_conso : (dataframe) dat set contenant les consommations électriques par foyers
+    df_conso : (dataframe) jeu de données contenant les consommations électriques par foyers
     """
     df = tri(df_conso)
 
@@ -50,11 +51,26 @@ def get_conso(df_conso):
     return df
 
 def get_geo(df_geo):
+    """
+    Cette fonction extrait les numéros, nom et contours des département de France.
+    
+    Paramètres :
+    --------------
+    df_geo : (dataframe) contours des départements français au format json
+    """
     geo=df_geo.loc[:,('code','nom','geometry')]
     
     return(geo)
 
 def final_data(df_conso, df_geo):
+    """
+    Cette fonction fusionne le dataframe des contours des départements français trié et le dataframe de la consommation électrique trié.
+    
+    Paramètres :
+    -------------
+    df_conso : (dataframe) données de consommation triées
+    df_geo : (dataframe) contours des départements français trié
+    """
     df_final = get_geo(df_geo).merge(get_conso(df_conso), left_on='conde', right_on='Département',how='outer')
     df_final=df_final[~df_final['geometry'].isna()]
     df_final=df_final.dropna()
