@@ -1,6 +1,14 @@
 import folium
 
 def carte(df_final, df_geo):
+    """
+    Création d'une carte présentant la consommation annuelle moyenne par foyer entre 2018 et 2021 d'une ville par département.
+    
+    Parametrers :
+    --------------
+    df_final : (dataframe) agrégation des données de consommation et des contours des départements
+    df_geo : (geson) fichier json contenant les contours des départements
+    """
     fmap = folium.Map(location=[47, 2], tiles='OpenStreetMap', zoom_start=6)
     folium.Choropleth(
             geo_data=df_geo,
@@ -18,6 +26,14 @@ def carte(df_final, df_geo):
     return(fmap)
 
 def legend(df_final,fmap):
+    """
+    Insertion des légendes dans la carte.
+    
+    Parameters :
+    -------------
+    df_final : (dataframe) agrégation des données de consommation et des contours des départements
+    fmap : (folium.map) carte
+    """
     folium.features.GeoJson(
                         data=df_final,
                         name='Consommation éléctrique annuelle moyenne',
