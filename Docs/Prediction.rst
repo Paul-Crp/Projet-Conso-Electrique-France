@@ -1,11 +1,8 @@
-Prediction package
-==================
-
-Submodules
-----------
+Prediction 
+===========
 
 Prediction.data module
-----------------------
+-----------------------
 
 .. automodule:: Prediction.data
    :members:
@@ -13,7 +10,7 @@ Prediction.data module
    :show-inheritance:
 
 Prediction.datatest module
---------------------------
+---------------------------
 
 .. automodule:: Prediction.datatest
    :members:
@@ -36,10 +33,3 @@ Prediction.ucmodele module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
-.. automodule:: Prediction
-   :members:
-   :undoc-members:
-   :show-inheritance:

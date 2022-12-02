@@ -3,15 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Projet_Conso_Electrique_France's documentation!
-==========================================================
+La consommation d'éléctricité en France 
+========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
    Prediction 
-   modules
+
+   Visualisation
+
 
 
 Indices and tables
