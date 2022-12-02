@@ -7,7 +7,7 @@ class Load_db:
     """
     Cette classe permet le téléchargement des données de consommation électrique par foyers de 2018 à 2021.
 
-    Parameters :
+    Paramètres :
     ---------------
 
     url : (string) adresse url du jeu de données
