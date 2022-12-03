@@ -3,9 +3,9 @@ import pooch
 import os.path
 
 if os.path.isfile('./consommation-annuelle-residentielle-par-adresse.csv'):
-    print("File already exists, no need to download it again.")
+    print("Le fichier exsite déjà.")
 else:
-    print("Downloading data, file is 210 MB, may take a long time...")
+    print("Téléchargement des données, le fichier fait 209 Mb, ça risque de prendre un moment...")
     file_path = pooch.retrieve(
     url="https://data.enedis.fr/explore/dataset/consommation-annuelle-residentielle-par-adresse/download/?format=csv&timezone=Europe/Berlin&lang=fr&use_labels_for_header=true&csv_separator=%3B",
     known_hash=None,
