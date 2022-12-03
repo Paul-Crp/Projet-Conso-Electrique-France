@@ -8,3 +8,4 @@ geopandas
 branca
 matplotlib
 sklearn
+tqdm
