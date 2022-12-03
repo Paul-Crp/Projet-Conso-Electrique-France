@@ -29,3 +29,9 @@ et installez pour les modules requis:
 Pour lancez la prédiction, veuillez lancer:
 
 Pour lancez la visualisation, veuillez lancer:
+
+
+## Autre
+
+La base de données est enregistrée dans la dossier Projet-Conso-Electrique-France-main/ et est nommée "consommation-annuelle-residentielle-par-adresse.csv".
+Veuillez ne pas renommer ce fichier (ou un autre).
