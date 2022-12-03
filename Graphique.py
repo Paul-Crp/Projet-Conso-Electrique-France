@@ -14,20 +14,6 @@ for k,v in d.items():
 
 # On crée deux listes : une pour les années et une pour les consommations.
 
-
-# class Graph:
-#     def __init__(self,k):
-#         for i in range(4*k,4*k+1):
-#             plt.plot([année[i],année[i+1],année[i+2],année[i+3]], [valeurs[i],valeurs[i+1],valeurs[i+2],valeurs[i+3]])
-
-#     def graphique(self):
-#         plt.plot(self.année,self.valeurs)
-#         plt.show()
-
-# for i in range(0,1):
-#     plt.plot([année[i],année[i+1],année[i+2],année[i+3]], [valeurs[i],valeurs[i+1],valeurs[i+2],valeurs[i+3]])
-# plt.show()
-
 class graphique:
     def __init__(self,k):
         self.k = k
