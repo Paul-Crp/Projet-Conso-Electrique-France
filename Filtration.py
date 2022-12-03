@@ -9,7 +9,7 @@ else:
     file_path = pooch.retrieve(
     url="https://data.enedis.fr/explore/dataset/consommation-annuelle-residentielle-par-adresse/download/?format=csv&timezone=Europe/Berlin&lang=fr&use_labels_for_header=true&csv_separator=%3B",
     known_hash=None,
-    fname="consommation-annuelle-residentielle-par-adrespise.csv",
+    fname="consommation-annuelle-residentielle-par-adresse.csv",
     path="./",
     progressbar=True
     )
