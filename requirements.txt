@@ -6,10 +6,5 @@ setuptools
 folium
 geopandas
 branca
-Interractive_Map
-matplotlib.pyplot
-matplotlib.pylab
 matplotlib
-pandas.plotting
-sklearn.metrics
-sklearn.linear_model
+sklearn
