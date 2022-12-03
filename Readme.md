@@ -7,19 +7,24 @@ Ce projet est prévu pour télécharger une banque de données de la consommatio
 ## Installation
 
 Veuillez télécharger le fichier Zip suivant et décompressez-le dans un dossier:
+
+
   https://github.com/Paul-Crp/Projet-Conso-Electrique-France/archive/refs/heads/main.zip
 
-Ou télécharger la branche Main avec votre package favori.
+
+ou télécharger la branche Main avec votre package favori.
 
 Ouvrez votre terminal dans 
 
   [Votre dossier]/Projet-Conso-Electrique-France-main/
   
-et installez pour les modules requis:
+et installez pour les modules requis:  
 
+```
   pip install -r requirements.txt
+```  
 
-## Use
+## Utilisation
 
 Pour lancez la prédiction, veuillez lancer:
 
