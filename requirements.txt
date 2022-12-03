@@ -9,3 +9,5 @@ branca
 matplotlib
 sklearn
 tqdm
+warnings
+matplotlib.pyplot
