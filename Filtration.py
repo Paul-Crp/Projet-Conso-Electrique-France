@@ -31,6 +31,4 @@ for i in ChoixVilles:
         df2 = df1[df1['Nom de la commune'].str.lower().isin([i.lower()])]
         d["Total-{0}".format(i+str(a))] = round(df2['Consommation annuelle totale de l\'adresse (MWh)'].sum(),3)
 
-print(d)
-
 dff.to_csv('TableauTraité.csv', index=False)
