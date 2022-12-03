@@ -1,5 +1,4 @@
 import os
-import pandas as pd
 import pooch
 import geopandas as gpd
 from intermap.io import url_geo, path_target_geo
