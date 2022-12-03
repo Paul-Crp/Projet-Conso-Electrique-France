@@ -17,6 +17,6 @@ setup(
 			",
     license="MIT",
 
-    packages=["biketrauma", "biketrauma.io", "biketrauma.preprocess", "biketrauma.vis"],
+    packages=[],
     zip_safe=False,
 )
