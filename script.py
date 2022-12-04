@@ -1,7 +1,8 @@
 import potemodule.intermap as IM
-import pandas as pd
+import os
 
 geo = IM.get_geo(IM.Load_geo().save_as_df())
 df = IM.final_data(IM.Load_db().save_as_df(), geo)
 
-IM.legend(df, IM.carte(df, geo)).save('Carte.html')
+os.makedirs('Carte', exist_ok=True)
+IM.legend(df, IM.carte(df, geo)).save('Carte/Carte.html')
