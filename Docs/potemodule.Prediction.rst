@@ -4,7 +4,7 @@ Prediction
 Prediction.data module
 -----------------------
 
-.. automodule:: Prediction.data
+.. automodule:: potemodule.Prediction.data
    :members:
    :undoc-members:
    :show-inheritance:
@@ -12,7 +12,7 @@ Prediction.data module
 Prediction.datatest module
 ---------------------------
 
-.. automodule:: Prediction.datatest
+.. automodule:: potemodule.Prediction.datatest
    :members:
    :undoc-members:
    :show-inheritance:
@@ -20,7 +20,7 @@ Prediction.datatest module
 Prediction.prophetmodel module
 ------------------------------
 
-.. automodule:: Prediction.prophetmodel
+.. automodule:: potemodule.Prediction.prophetmodel
    :members:
    :undoc-members:
    :show-inheritance:
@@ -28,7 +28,7 @@ Prediction.prophetmodel module
 Prediction.ucmodele module
 --------------------------
 
-.. automodule:: Prediction.ucmodele
+.. automodule:: potemodule.Prediction.ucmodele
    :members:
    :undoc-members:
    :show-inheritance:

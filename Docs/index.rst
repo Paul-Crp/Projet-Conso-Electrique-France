@@ -10,9 +10,7 @@ La consommation d'éléctricité en France
    :maxdepth: 4
    :caption: Contents:
 
-   Prediction 
-
-   Visualisation
+   modules
 
 
 
