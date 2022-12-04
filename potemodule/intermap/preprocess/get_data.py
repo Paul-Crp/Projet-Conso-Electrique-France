@@ -1,5 +1,5 @@
 import pandas as pd
-from intermap.preprocess import Villes
+from potemodule.intermap.preprocess import Villes
 
 
 def tri(df_conso):

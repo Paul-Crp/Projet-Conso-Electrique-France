@@ -1,7 +1,7 @@
 import os
 import pooch
 import geopandas as gpd
-from intermap.io import url_geo, path_target_geo
+from potemodule.intermap.io import url_geo, path_target_geo
 
 
 class Load_geo:

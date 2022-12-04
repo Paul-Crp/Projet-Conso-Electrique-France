@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import pooch
-from intermap.io import url_db, path_target_db
+from potemodule.intermap.io import url_db, path_target_db
 
 
 class Load_db:

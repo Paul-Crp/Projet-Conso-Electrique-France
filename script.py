@@ -1,4 +1,4 @@
-import intermap as IM
+import potemodule.intermap as IM
 import pandas as pd
 
 geo = IM.get_geo(IM.Load_geo().save_as_df())
