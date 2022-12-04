@@ -19,9 +19,9 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'project name'
-copyright = '2022, auteur'
-author = 'auteur'
+project = 'Module POTE'
+copyright = '2022, Crespin Paul, Lamrini Oualid, Renoir Thamara, Sinibaldi Emma'
+author = 'Crespin Paul, Lamrini Oualid, Renoir Thamara, Sinibaldi Emma'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0.0'

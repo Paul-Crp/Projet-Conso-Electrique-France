@@ -1,5 +1,5 @@
-Projet_M1
-=========
+Module POTE
+============
 
 .. toctree::
    :maxdepth: 4

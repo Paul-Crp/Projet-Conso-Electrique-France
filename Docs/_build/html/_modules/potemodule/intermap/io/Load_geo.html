@@ -72,27 +72,30 @@
 
 <div class="viewcode-block" id="Load_geo"><a class="viewcode-back" href="../../../../potemodule.intermap.io.html#potemodule.intermap.io.Load_geo.Load_geo">[docs]</a><span class="k">class</span> <span class="nc">Load_geo</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Cette classe télécharge le fichier au format json décvrivant les contours des départements français.</span>
-
-<span class="sd">    Paramètres :</span>
-<span class="sd">    ---------------</span>
-
-<span class="sd">    url : (string) adresse url du jeu de données</span>
-<span class="sd">    target_name : (string) chemin local où le jeu de données est enregistrer</span>
+<span class="sd">    Téléchargement du fichier au format json décvrivant les contours des départements français.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url_geo</span><span class="p">,</span> <span class="n">target_name</span><span class="o">=</span><span class="n">path_target_geo</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Téléchargement.</span>
+
+<span class="sd">        Paramètres :</span>
+
+<span class="sd">        - url : (string) adresse url du jeu de données</span>
+
+<span class="sd">        - target_name : (string) chemin local où le jeu de données est enregistrer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">path</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path_target_geo</span><span class="p">)</span>
         <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Load_geo.save_as_df"><a class="viewcode-back" href="../../../../potemodule.intermap.io.html#potemodule.intermap.io.Load_geo.Load_geo.save_as_df">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">save_as_df</span><span class="p">():</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Téléchargement des données dans un dataframe.</span>
+<span class="sd">        Import des données géographique dans un dataframe.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">df_geo</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path_target_geo</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">df_geo</span></div></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">df_geo</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

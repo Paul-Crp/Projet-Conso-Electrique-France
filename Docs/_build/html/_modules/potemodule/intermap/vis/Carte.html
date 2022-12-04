@@ -72,9 +72,10 @@
 <span class="sd">    Création d&#39;une carte présentant la consommation annuelle moyenne par foyer entre 2018 et 2021 d&#39;une ville par département.</span>
 
 <span class="sd">    Paramètres :</span>
-<span class="sd">    --------------</span>
-<span class="sd">    df_final : (dataframe) agrégation des données de consommation et des contours des départements</span>
-<span class="sd">    df_geo : (geson) fichier json contenant les contours des départements</span>
+
+<span class="sd">    - df_final : (dataframe) agrégation des données de consommation et des contours des départements</span>
+
+<span class="sd">    - df_geo : (geson) fichier json contenant les contours des départements</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fmap</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">47</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">&#39;OpenStreetMap&#39;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
     <span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
@@ -98,10 +99,11 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Insertion des légendes dans la carte.</span>
 
-<span class="sd">    Parameters :</span>
-<span class="sd">    -------------</span>
-<span class="sd">    df_final : (dataframe) agrégation des données de consommation et des contours des départements</span>
-<span class="sd">    fmap : (folium.map) carte</span>
+<span class="sd">    Paramètres :</span>
+
+<span class="sd">    - df_final : (dataframe) agrégation des données de consommation et des contours des départements</span>
+
+<span class="sd">    - fmap : (folium.map) carte</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
         <span class="n">data</span><span class="o">=</span><span class="n">df_final</span><span class="p">,</span>

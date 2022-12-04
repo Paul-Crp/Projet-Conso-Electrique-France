@@ -90,23 +90,32 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="potemodule.intermap.preprocess.get_data.final_data">
 <span class="sig-prename descclassname"><span class="pre">potemodule.intermap.preprocess.get_data.</span></span><span class="sig-name descname"><span class="pre">final_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_conso</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_geo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/intermap/preprocess/get_data.html#final_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.intermap.preprocess.get_data.final_data" title="Permalink to this definition"></a></dt>
-<dd><p>Cette fonction fusionne le dataframe des contours des départements français trié et le dataframe de la consommation électrique trié.</p>
-<p>df_conso : (dataframe) données de consommation triées
-df_geo : (dataframe) contours des départements français trié</p>
+<dd><p>Fusion du dataframe des contours des départements français trié et du dataframe de la consommation électrique trié.</p>
+<p>Paramètres :</p>
+<ul class="simple">
+<li><p>df_conso : (dataframe) données de consommation triées</p></li>
+<li><p>df_geo : (dataframe) contours des départements français trié</p></li>
+</ul>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="potemodule.intermap.preprocess.get_data.get_conso">
 <span class="sig-prename descclassname"><span class="pre">potemodule.intermap.preprocess.get_data.</span></span><span class="sig-name descname"><span class="pre">get_conso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_conso</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/intermap/preprocess/get_data.html#get_conso"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.intermap.preprocess.get_data.get_conso" title="Permalink to this definition"></a></dt>
-<dd><p>Cette fonction extrait du jeu de données trié la consommation moyenne annuelle par habitant d’une ville par département.</p>
-<p>df_conso : (dataframe) jeu de données contenant les consommations électriques par foyers</p>
+<dd><p>Extraction des données de consommation moyenne annuelle par habitant d’une ville par département triées.</p>
+<p>Paramètres :</p>
+<ul class="simple">
+<li><p>df_conso : (dataframe) jeu de données contenant les consommations électriques par foyers</p></li>
+</ul>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="potemodule.intermap.preprocess.get_data.get_geo">
 <span class="sig-prename descclassname"><span class="pre">potemodule.intermap.preprocess.get_data.</span></span><span class="sig-name descname"><span class="pre">get_geo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_geo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/intermap/preprocess/get_data.html#get_geo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.intermap.preprocess.get_data.get_geo" title="Permalink to this definition"></a></dt>
-<dd><p>Cette fonction extrait les numéros, nom et contours des département de France.</p>
-<p>df_geo : (dataframe) contours des départements français au format json</p>
+<dd><p>Extraction des numéros, nom et contours des département de France.</p>
+<p>Paramètres :</p>
+<ul class="simple">
+<li><p>df_geo : (dataframe) contours des départements français au format json</p></li>
+</ul>
 </dd></dl>
 
 <dl class="py function">
@@ -114,7 +123,10 @@ df_geo : (dataframe) contours des départements français trié</p>
 <span class="sig-prename descclassname"><span class="pre">potemodule.intermap.preprocess.get_data.</span></span><span class="sig-name descname"><span class="pre">tri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_conso</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/intermap/preprocess/get_data.html#tri"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.intermap.preprocess.get_data.tri" title="Permalink to this definition"></a></dt>
 <dd><p>Suppression des colonnes non nécessaire à la visualisation et ajout d’une colonne ‘Département’ contenant le numéro de département de chaque adresse.
 Tri des données pour conserve la ville la plus peuplée par département.</p>
-<p>df_conso : (dataframe) dataset contenant les consommation électrique par foyers</p>
+<p>Paramètres :</p>
+<ul class="simple">
+<li><p>df_conso : (dataframe) dataset contenant les consommation électrique par foyers</p></li>
+</ul>
 </dd></dl>
 
 </section>
