@@ -12,38 +12,30 @@ def tri(df_conso):
 
     - df_conso : (dataframe) dataset contenant les consommation électrique par foyers
     """
+    df_conso.drop(
+        df_conso.columns[[1, 2, 3, 4, 5, 6, 9, 10, 12, 14, 15]], axis=1, inplace=True)
 
-    if os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                   "Interactive_Map", "data", "TableauTraité.csv")):
-        df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                      "..", "data", "TableauTraité.csv"))
-        return (df)
+    Dept = []
+    for i in df_conso['Code INSEE de la commune']:
+        i = int(i/1000)
+        if i < 10:
+            Dept.append(f'{i}'.zfill(2))
+        else:
+            Dept.append(f'{i}')
 
-    else:
-        df_conso.drop(
-            df_conso.columns[[1, 2, 3, 4, 5, 6, 9, 10, 12, 14, 15]], axis=1, inplace=True)
+    df_conso.insert(1, 'Département', Dept)
+    df_conso.drop('Code INSEE de la commune', axis=1, inplace=True)
 
-        Dept = []
-        for i in df_conso['Code INSEE de la commune']:
-            i = int(i/1000)
-            if i < 10:
-                Dept.append(f'{i}'.zfill(2))
-            else:
-                Dept.append(f'{i}')
+    df_conso["Nom de la commune"] = df_conso["Nom de la commune"].str.lower()
+    df = pd.DataFrame()
+    for i in Villes:
+        df1 = df_conso[df_conso['Nom de la commune'] == i]
+        df = pd.concat([df, df1], ignore_index=True)
 
-        df_conso.insert(1, 'Département', Dept)
-        df_conso.drop('Code INSEE de la commune', axis=1, inplace=True)
+    df.to_csv(os.path.join(os.path.dirname(
+        os.path.realpath(__file__)), "..", "data", "TableauTraité.csv"), index=False)
 
-        df_conso["Nom de la commune"] = df_conso["Nom de la commune"].str.lower()
-        df = pd.DataFrame()
-        for i in Villes:
-            df1 = df_conso[df_conso['Nom de la commune'] == i]
-            df = pd.concat([df, df1], ignore_index=True)
-
-        df.to_csv(os.path.join(os.path.dirname(
-            os.path.realpath(__file__)), "..", "data", "TableauTraité.csv"), index=False)
-
-        return (df)
+    return (df)
 
 
 def get_conso(df_conso):
@@ -57,7 +49,7 @@ def get_conso(df_conso):
     df = tri(df_conso)
 
     df = df.groupby(['Département', 'Nom de la commune', 'Année'])[
-        [df.columns[5]]].aggregate(lambda x: x.max()).reset_index()
+        [df.columns[4]]].aggregate(lambda x: x.max()).reset_index()
     df = df.groupby(['Département', 'Nom de la commune'])[
         [df.columns[3]]].aggregate(lambda x: x.mean()).reset_index()
 
@@ -88,7 +80,7 @@ def final_data(df_conso, df_geo):
     - df_geo : (dataframe) contours des départements français trié
     """
     df_final = get_geo(df_geo).merge(get_conso(df_conso),
-                                     left_on='conde', right_on='Département', how='outer')
+                                     left_on='code', right_on='Département', how='outer')
     df_final = df_final[~df_final['geometry'].isna()]
     df_final = df_final.dropna()
 

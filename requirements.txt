@@ -5,9 +5,6 @@ numpy
 setuptools
 folium
 geopandas
-branca
 matplotlib
-sklearn
 tqdm
 warnings
-matplotlib.pyplot
