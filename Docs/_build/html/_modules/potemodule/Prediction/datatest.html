@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>potemodule.Prediction.datatest &mdash; project name 1.0.0 documentation</title><link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> project name
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">install,contacts:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">Comment installer le package potemodule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/contacts.html">Contacts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Prediction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../potemodule.Prediction.html">potemodule.Prediction.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../potemodule.Prediction.html#module-potemodule.Prediction.datatest">potemodule.Prediction.datatest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../potemodule.Prediction.html#module-potemodule.Prediction.prophetmodel">potemodule.Prediction.prophetmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../potemodule.Prediction.html#module-potemodule.Prediction.ucmodele">potemodule.Prediction.ucmodele module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">project name</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">potemodule.Prediction.datatest</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for potemodule.Prediction.datatest</h1><div class="highlight"><pre>
+<span></span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.eval_measures</span> <span class="kn">import</span> <span class="n">rmse</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#from prophet import plot_components_plotly</span>
+<span class="c1">#from prophet import plot_plotly</span>
+<span class="kn">from</span> <span class="nn">prophet</span> <span class="kn">import</span> <span class="n">Prophet</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="c1">#import data </span>
+
+<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../../potemodule.Prediction.html#potemodule.Prediction.datatest.Model">[docs]</a><span class="k">def</span> <span class="nf">Model</span><span class="p">():</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;.data/datafinal.cvs&quot;</span><span class="p">)</span><span class="c1">#pd.read_csv(&quot;/Users/mac/Desktop/HAX712X-DOS/Project/Prediction/DataSet.csv&quot;)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">&lt;</span><span class="s2">&quot;2022-11-30 00:00:00&quot;</span><span class="p">]</span>
+    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;France Electric Power Energy (MW) consumption&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;MW&#39;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Consommation (MW)&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># training data</span>
+    <span class="c1">#train, test = train_test_split(df, test_size=0.20, shuffle=False)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">()</span>
+    <span class="c1"># m=Prophet(changepoint_prior_scale=0.01).fit(train)</span>
+    <span class="n">proph</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="c1">#traine_fauture = proph.make_future_dataframe(periods=len(test), freq=&#39;15T&#39;)</span>
+    <span class="n">usecols2019</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Heure&#39;</span><span class="p">,</span> <span class="s2">&quot;Consommation (MW)&quot;</span><span class="p">]</span> <span class="c1"># variables we needs</span>
+    <span class="n">days</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/Users/mac/Downloads/3days.csv&quot;</span><span class="p">,</span><span class="n">usecols</span><span class="o">=</span><span class="n">usecols2019</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+    <span class="n">time_improved</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">days</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">+</span>
+                                       <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">days</span><span class="p">[</span><span class="s1">&#39;Heure&#39;</span><span class="p">],</span>
+                                       <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span>
+    <span class="n">days</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_improved</span>  <span class="c1"># add the Time to the data</span>
+    <span class="n">days</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># set time as index</span>
+    <span class="c1"># remove useles columns</span>
+    <span class="k">del</span> <span class="n">days</span><span class="p">[</span><span class="s1">&#39;Heure&#39;</span><span class="p">]</span>
+    <span class="k">del</span> <span class="n">days</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span>
+    <span class="n">days</span> <span class="o">=</span> <span class="n">days</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="n">days</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">test</span><span class="p">[</span><span class="s1">&#39;ds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Consommation (MW)&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">forcast</span> <span class="o">=</span> <span class="n">proph</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+    <span class="n">daypred</span> <span class="o">=</span> <span class="n">forcast</span><span class="p">[[</span><span class="s2">&quot;ds&quot;</span><span class="p">,</span> <span class="s2">&quot;yhat&quot;</span><span class="p">]]</span>
+    <span class="n">daypred</span> <span class="o">=</span> <span class="n">daypred</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;ds&quot;</span><span class="p">)</span> 
+    <span class="n">daypred</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">daypred</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">daypred</span> <span class="o">=</span> <span class="n">daypred</span> <span class="o">+</span> <span class="mi">7000</span> <span class="c1">#shifting </span>
+    <span class="c1">#test = test.set_index(&quot;ds&quot;)</span>
+    <span class="c1">#test.index = pd.to_datetime(test.index)</span>
+    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;France Electric Power Energy (MW) consumption&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">);</span>
+    <span class="n">daypred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;MW&#39;</span><span class="p">);</span>
+    <span class="n">days</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;MW&#39;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, auteur.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,147 +1,112 @@
-import numpy as np
 import pandas as pd
-import numpy as np
 import os
 import pooch
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
+from potemodule.Prediction import urls,paths
 
-
-def dataframe():
-    """Download .
-    Moreover, there are functions who display the Mandlebrot set in 2D and 3D with animated video.
-    :param x: coordinate of the image's center
-    :type x: float
-    :param y: coordinate on the Imaginary axis
-    :type y: float
-    :param facteur: the remoteness of the image's center
-    :type facteur: float
-    :param t_max: the iteration's number of the sequence (zn)
-    :type t_max: integer
-    :param precision: number of terms in the array (using to build the image)
-    :type precision: integer
+class managedata():
     """
-    # ___________________Création du Data 2019_________________________
+        Cette classe permet le téléchargement des données de consommation électrique de 2019 à  2022.
 
-    url = "https://bit.ly/3i1OFkU"
-    path_target = "./eco2mix-national-cons-def.csv"
-    path, fname = os.path.split(path_target)
-    pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
-    data_2019 = pd.read_csv("eco2mix-national-cons-def.csv", sep=";")
-    data_2019 = data_2019[['Date', 'Heure', 'Consommation (MW)']]
-    # changer le format du temps.
-    time_improved = pd.to_datetime(data_2019['Date'] +
-                                   ' ' + data_2019['Heure'],
-                                   format='%Y-%m-%d %H:%M')
-    data_2019['Temps'] = time_improved
-    data_2019.set_index('Temps', inplace=True)
-    del data_2019['Heure']
-    del data_2019['Date']
-    data_2019 = data_2019.sort_index(ascending=True)
-    # remplacer les NaN et la transformation de la consomation du 2019 sur chaque 15 min.
-    for nan in range(len(data_2019)-1):
-        if data_2019[['Consommation (MW)']].isna().iloc[:, 0][nan]:
-            data_2019['Consommation (MW)'][nan] = (
-                data_2019['Consommation (MW)'][nan-1] + data_2019['Consommation (MW)'][nan+1])/2
-    data_2019['Consommation (MW)'][len(data_2019)-1] = (data_2019['Consommation (MW)']
-                                                        [len(data_2019)-2]+data_2019['Consommation (MW)'][len(data_2019)-3])/2
-    print("le nombre de NaN sur data_2019 est : ", int(data_2019.isna().sum()))
-    # ____________________Création du Data 2020_________________________
-    url = "https://bit.ly/3V81yIg"
-    path_target = "./eco2mix-national-cons-def(1).csv"
-    path, fname = os.path.split(path_target)
-    pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
-    data2020 = pd.read_csv("eco2mix-national-cons-def(1).csv", sep=";")
-    data2020 = data2020[['Date', 'Heure', 'Consommation (MW)']]
-    # changer le format du temps.
-    time_improved = pd.to_datetime(data2020['Date'] +
-                                   ' ' + data2020['Heure'],
-                                   format='%Y-%m-%d %H:%M')
-    data2020['Temps'] = time_improved
-    data2020.set_index('Temps', inplace=True)
-    del data2020['Heure']
-    del data2020['Date']
-    data2020 = data2020.sort_index(ascending=True)
-    # remplacer les NaN et la transformation de la consomation du 2020 sur chaque 15 min.
-    for nan in range(len(data2020)-1):
-        if data2020[['Consommation (MW)']].isna().iloc[:, 0][nan]:
-            data2020['Consommation (MW)'][nan] = (
-                data2020['Consommation (MW)'][nan-1] + data2020['Consommation (MW)'][nan+1])/2
-    data2020['Consommation (MW)'][len(data2020)-1] = (data2020['Consommation (MW)']
-                                                      [len(data2020)-2]+data2020['Consommation (MW)'][len(data2020)-3])/2
-    print("le nombre de NaN sur data2020 est : ", int(data2020.isna().sum()))
-    # ____________________Création du Data 2021_________________________
-    url = "https://bit.ly/3UO3NRc"
-    path_target = "./eco2mix-national-cons-def(2).csv"
-    path, fname = os.path.split(path_target)
-    pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
-    data2021 = pd.read_csv("eco2mix-national-cons-def(2).csv", sep=";")
-    data2021 = data2021[['Date', 'Heure', 'Consommation (MW)']]
-    # changer le format du temps .
-    time_improved = pd.to_datetime(data2021['Date'] +
-                                   ' ' + data2021['Heure'],
-                                   format='%Y-%m-%d %H:%M')
-    data2021['Temps'] = time_improved
-    data2021.set_index('Temps', inplace=True)
-    del data2021['Heure']
-    del data2021['Date']
-    data2021 = data2021.sort_index(ascending=True)
-    # remplacer les NaN et la transformation de la consomation du 2021 sur chaque 15 min.
-    for nan in range(len(data2021)-1):
-        if data2021[['Consommation (MW)']].isna().iloc[:, 0][nan]:
-            data2021['Consommation (MW)'][nan] = (
-                data2021['Consommation (MW)'][nan-1] + data2021['Consommation (MW)'][nan+1])/2
-    data2021['Consommation (MW)'][len(data2021)-1] = (data2021['Consommation (MW)']
-                                                      [len(data2021)-2]+data2021['Consommation (MW)'][len(data2021)-3])/2
-    print("le nombre de NaN sur data2021 est : ", int(data2021.isna().sum()))
-    # ____________________Création du Data 2022 du janvier à mai_________________________
-    url = "https://bit.ly/3gowmWv"
-    path_target = "./eco2mix-national-cons-def(3).csv"
-    path, fname = os.path.split(path_target)
-    pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
-    data2022HALF1 = pd.read_csv("eco2mix-national-cons-def(3).csv", sep=";")
-    #data2022HALF1 = data2022HALF1.set_index('Date et Heure')
-    data2022HALF1 = data2022HALF1[['Date', 'Heure', 'Consommation (MW)']]
-    # changer le format du temps
-    time_improved = pd.to_datetime(data2022HALF1['Date'] +
-                                   ' ' + data2022HALF1['Heure'],
-                                   format='%Y-%m-%d %H:%M')
-    data2022HALF1['Temps'] = time_improved
-    data2022HALF1.set_index('Temps', inplace=True)
-    del data2022HALF1['Heure']
-    del data2022HALF1['Date']
-    data2022HALF1 = data2022HALF1.sort_index(ascending=True)
-    # remplacer les NaN et la transformation de la consomation du 2022 sur chaque 15 min.
-    for nan in range(len(data2022HALF1)-1):
-        if data2022HALF1[['Consommation (MW)']].isna().iloc[:, 0][nan]:
-            data2022HALF1['Consommation (MW)'][nan] = (
-                data2022HALF1['Consommation (MW)'][nan-1] + data2022HALF1['Consommation (MW)'][nan+1])/2
-    data2022HALF1['Consommation (MW)'][len(data2022HALF1)-1] = (data2022HALF1['Consommation (MW)']
-                                                                [len(data2022HALF1)-2]+data2022HALF1['Consommation (MW)'][len(data2022HALF1)-3])/2
-    print("le nombre de NaN sur data2022HALF1 est : ",
-          int(data2022HALF1.isna().sum()))
-    # ____________________Création du Data 2022 de junin_________________________
-    url = "https://bit.ly/3Ep9TjU"
-    path_target = "./eco2mix-national-cons-def(4).csv"
-    path, fname = os.path.split(path_target)
-    pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
-    data2022HALF2 = pd.read_csv("eco2mix-national-cons-def(4).csv", sep=";")
-    #Data2022 = Data2022.set_index('Date et Heure')
-    data2022HALF2 = data2022HALF2[['Date', 'Heure', 'Consommation (MW)']]
-    # changer le format du temps
-    time_improved = pd.to_datetime(data2022HALF2['Date'] +
-                                   ' ' + data2022HALF2['Heure'],
-                                   format='%Y-%m-%d %H:%M')
-    data2022HALF2['Temps'] = time_improved
-    data2022HALF2.set_index('Temps', inplace=True)
-    del data2022HALF2['Heure']
-    del data2022HALF2['Date']
-    data2022HALF2 = data2022HALF2.sort_index(ascending=True)
-    data2022HALF2 = data2022HALF2.dropna()
-    print("le nombre de NaN sur data2022HALF2 est : ",
-          int(data2022HALF2.isna().sum()))
-    #
-    ##
-    datafinal = pd.concat([data_2019, data2020, data2021,
-                           data2022HALF1, data2022HALF2], axis=0)
-    return datafinal
+        :param urls: adresses urls du jeu de données
+
+        :type urls: string
+
+        :param target_name: chemins locaux où le jeu de données est enregistrer
+
+        :type target_name: string
+    """
+    def __init__(self, url=urls, target_name=paths):
+        """"
+        Fonction d'initialisation 
+        Elle permet le téléchargement des données au bon emplacement "./Data"
+
+        """
+        for i in range(5):
+            path ,fname = os.path.split(paths[i])
+            pooch.retrieve(urls[i], path=path, fname=fname, known_hash=None,)
+    def dataframe():
+        """ Manipulation du jeu de données de 01/01/2019 jusqu'à 06/12/2022.
+
+            :return: le jeu de données pour chaque 15 min 01/01/2019 jusqu'à 06/12/2022
+            
+            :rtype: Data frame 
+        """
+        data1 = pd.read_csv("./Data/data1.csv", sep=";")
+        data1 = data1[['Date', 'Heure', 'Consommation (MW)']]
+        time_improved = pd.to_datetime(data1['Date'] +
+                                       ' ' + data1['Heure'],
+                                       format='%Y-%m-%d %H:%M')
+        data1['Temps'] = time_improved
+        data1.set_index('Temps', inplace=True)
+        del data1['Heure']
+        del data1['Date']
+        data1 = data1.sort_index(ascending=True)
+        for nan in range(len(data1)-1):
+            if data1[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data1['Consommation (MW)'][nan] = data1['Consommation (MW)'][nan-1:nan+1].mean()
+        data1['Consommation (MW)'][len(
+            data1)-1] = data1['Consommation (MW)'][-3:-2].mean()
+        # -----------------------------------------------------------------------------------------
+        data2 = pd.read_csv("./Data/data2.csv", sep=";")
+        data2 = data2[['Date', 'Heure', 'Consommation (MW)']]
+        data2['Temps'] = pd.to_datetime(data2['Date'] +
+                                        ' ' + data2['Heure'],
+                                        format='%Y-%m-%d %H:%M')
+        data2.set_index('Temps', inplace=True)
+        del data2['Heure']
+        del data2['Date']
+        data2 = data2.sort_index(ascending=True)
+        for nan in range(len(data1)-1):
+            if data1[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data1['Consommation (MW)'][nan] = data1['Consommation (MW)'][nan-1:nan+1].mean()
+        data2['Consommation (MW)'][len(
+            data1)-1] = data1['Consommation (MW)'][-3:-2].mean()
+        # -----------------------------------------------------------------------------------------
+        data3 = pd.read_csv("./Data/data3.csv", sep=";")
+        data3 = data3[['Date', 'Heure', 'Consommation (MW)']]
+        data3['Temps'] = pd.to_datetime(data3['Date'] +
+                                        ' ' + data3['Heure'],
+                                        format='%Y-%m-%d %H:%M')
+        data3.set_index('Temps', inplace=True)
+        del data3['Heure']
+        del data3['Date']
+        data3 = data3.sort_index(ascending=True)
+        for nan in range(len(data1)-1):
+            if data1[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data1['Consommation (MW)'][nan] = data1['Consommation (MW)'][nan-1:nan+1].mean()
+        data3['Consommation (MW)'][len(
+            data1)-1] = data1['Consommation (MW)'][-3:-2].mean()
+        # -----------------------------------------------------------------------------------------
+        data41 = pd.read_csv("./Data/data41.csv", sep=";")
+        data41 = data41[['Date', 'Heure', 'Consommation (MW)']]
+        data41['Temps'] = pd.to_datetime(data41['Date'] +
+                                         ' ' + data41['Heure'],
+                                         format='%Y-%m-%d %H:%M')
+        data41.set_index('Temps', inplace=True)
+        del data41['Heure']
+        del data41['Date']
+        data41 = data41.sort_index(ascending=True)
+        for nan in range(len(data1)-1):
+            if data1[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data1['Consommation (MW)'][nan] = data1['Consommation (MW)'][nan-1:nan+1].mean()
+        data3['Consommation (MW)'][len(
+            data1)-1] = data1['Consommation (MW)'][-3:-2].mean()
+        # -----------------------------------------------------------------------------------------
+        data42 = pd.read_csv("./Data/data42.csv", sep=";")
+        #Data2022 = Data2022.set_index('Date et Heure')
+        data42 = data42[['Date', 'Heure', 'Consommation (MW)']]
+        data42['Temps'] = pd.to_datetime(data42['Date'] +
+                                         ' ' + data42['Heure'],
+                                         format='%Y-%m-%d %H:%M')
+        data42.set_index('Temps', inplace=True)
+        del data42['Heure']
+        del data42['Date']
+        data42 = data42.sort_index(ascending=True)
+        data42 = data42.dropna()
+        df = pd.concat([data1, data2, data3,
+                        data41, data42], axis=0)
+
+        return df
+

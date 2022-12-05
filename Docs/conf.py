@@ -13,9 +13,8 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-from Projet_M1 import *
-from Projet_M1.Prediction import *
-from Projet_M1.Visualisation import *
+from potemodule import *
+#from potemodule.inter_map import *
 
 # -- Project information -----------------------------------------------------
 

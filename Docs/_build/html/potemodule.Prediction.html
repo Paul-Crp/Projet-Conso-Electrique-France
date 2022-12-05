@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>potemodule.Prediction.data &mdash; project name 1.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Contacts" href="installation/contacts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> project name
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">install,contacts:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/install.html">Comment installer le package potemodule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/contacts.html">Contacts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Prediction</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">potemodule.Prediction.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-potemodule.Prediction.datatest">potemodule.Prediction.datatest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-potemodule.Prediction.prophetmodel">potemodule.Prediction.prophetmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-potemodule.Prediction.ucmodele">potemodule.Prediction.ucmodele module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">project name</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">potemodule.Prediction.data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/potemodule.Prediction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-potemodule.Prediction.data">
+<span id="potemodule-prediction-data"></span><h1>potemodule.Prediction.data<a class="headerlink" href="#module-potemodule.Prediction.data" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="potemodule.Prediction.data.managedata">
+<em class="property">class </em><code class="sig-prename descclassname">potemodule.Prediction.data.</code><code class="sig-name descname">managedata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">['https://bit.ly/3i1OFkU', 'https://bit.ly/3V81yIg', 'https://bit.ly/3UO3NRc', 'https://bit.ly/3gowmWv', 'https://bit.ly/3Ep9TjU']</span></em>, <em class="sig-param"><span class="n">target_name</span><span class="o">=</span><span class="default_value">['./Data/data1.csv', './Data/data2.csv', './Data/data3.csv', './Data/data41.csv', './Data/data42.csv']</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/data.html#managedata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.data.managedata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Cette classe permet le téléchargement des données de consommation électrique de 2019 à  2022.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>urls</strong> (<em>string</em>) – adresses urls du jeu de données</p></li>
+<li><p><strong>target_name</strong> (<em>string</em>) – chemins locaux où le jeu de données est enregistrer</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="potemodule.Prediction.data.managedata.dataframe">
+<code class="sig-name descname">dataframe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/data.html#managedata.dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.data.managedata.dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manipulation du jeu de données de 01/01/2019 jusqu’à 06/12/2022.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>le jeu de données pour chaque 15 min 01/01/2019 jusqu’à 06/12/2022</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Data frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-potemodule.Prediction.datatest">
+<span id="potemodule-prediction-datatest"></span><h1>potemodule.Prediction.datatest<a class="headerlink" href="#module-potemodule.Prediction.datatest" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="potemodule.Prediction.datatest.Model">
+<code class="sig-prename descclassname">potemodule.Prediction.datatest.</code><code class="sig-name descname">Model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/datatest.html#Model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.datatest.Model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-potemodule.Prediction.prophetmodel">
+<span id="potemodule-prediction-prophetmodel"></span><h1>potemodule.Prediction.prophetmodel<a class="headerlink" href="#module-potemodule.Prediction.prophetmodel" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="potemodule.Prediction.prophetmodel.modele">
+<em class="property">class </em><code class="sig-prename descclassname">potemodule.Prediction.prophetmodel.</code><code class="sig-name descname">modele</code><a class="reference internal" href="_modules/potemodule/Prediction/prophetmodel.html#modele"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.prophetmodel.modele" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="potemodule.Prediction.prophetmodel.modele.modeele">
+<code class="sig-name descname">modeele</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/prophetmodel.html#modele.modeele"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.prophetmodel.modele.modeele" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-potemodule.Prediction.ucmodele">
+<span id="potemodule-prediction-ucmodele-module"></span><h1>potemodule.Prediction.ucmodele module<a class="headerlink" href="#module-potemodule.Prediction.ucmodele" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="potemodule.Prediction.ucmodele.modelle">
+<code class="sig-prename descclassname">potemodule.Prediction.ucmodele.</code><code class="sig-name descname">modelle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/ucmodele.html#modelle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.ucmodele.modelle" title="Permalink to this definition">¶</a></dt>
+<dd><p>” prediction modele</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation/contacts.html" class="btn btn-neutral float-left" title="Contacts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, auteur.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

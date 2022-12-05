@@ -1,9 +1,7 @@
-Projet_M1
-=========
+potemodule
+==========
 
 .. toctree::
    :maxdepth: 4
 
-   Prediction
-   
-   Visualisation
+   potemodule
