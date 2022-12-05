@@ -1,58 +1,172 @@
+#%%
+import numpy as np
+import pandas as pd
+import os
+import pooch
 
-from statsmodels.tools.eval_measures import rmse
-from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
-#from prophet import plot_components_plotly
-#from prophet import plot_plotly
-from prophet import Prophet
-import pandas as pd 
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set()
-import statsmodels.api as sm
-#import data 
+class On_test():
+    """" this is a class of data preprocessing """
+    def dataframe():
+        # ___________________Création du Data 2019_________________________
 
-def Model():
+        url = "https://bit.ly/3i1OFkU"
+        path_target = "./eco2mix-national-cons-def.csv"
+        path, fname = os.path.split(path_target)
+        pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
+        data2020 = pd.read_csv("eco2mix-national-cons-def.csv", sep=";")
+        data2020 = data2020[['Date', 'Heure', 'Consommation (MW)']]
+        # changer le format du temps.
+        time_improved = pd.to_datetime(data2020['Date'] +
+                                    ' ' + data2020['Heure'],
+                                    format='%Y-%m-%d %H:%M')
+        data2020['Temps'] = time_improved
+        data2020.set_index('Temps', inplace=True)
+        del data2020['Heure']
+        del data2020['Date']
+        data2020 = data2020.sort_index(ascending=True)
+        m=data2020[['Consommation (MW)']].dropna().mean()
+        for nan in range(len(data2020)-1):
+            if data2020[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data2020['Consommation (MW)'][nan] = m
+        
+        # remplacer les NaN et la transformation de la consomation du 2019 sur chaque 15 min
+        # ____________________Création du Data 2020_________________________
+        url = "https://bit.ly/3V81yIg"
+        path_target = "./eco2mix-national-cons-def(1).csv"
+        path, fname = os.path.split(path_target)
+        pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
+        data2020 = pd.read_csv("eco2mix-national-cons-def(1).csv", sep=";")
+        data2020 = data2020[['Date', 'Heure', 'Consommation (MW)']]
+        # changer le format du temps.
+        time_improved = pd.to_datetime(data2020['Date'] +
+                                    ' ' + data2020['Heure'],
+                                    format='%Y-%m-%d %H:%M')
+        data2020['Temps'] = time_improved
+        data2020.set_index('Temps', inplace=True)
+        del data2020['Heure']
+        del data2020['Date']
+        data2020 = data2020.sort_index(ascending=True)
+        m=data2020[['Consommation (MW)']].dropna().mean()
+        for nan in range(len(data2020)-1):
+            if data2020[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data2020['Consommation (MW)'][nan] = m
+        # remplacer les NaN et la transformation de la consomation du 2020 sur chaque 15 min.
+        
+        url = "https://bit.ly/3UO3NRc"
+        path_target = "./eco2mix-national-cons-def(2).csv"
+        path, fname = os.path.split(path_target)
+        pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
+        data2021 = pd.read_csv("eco2mix-national-cons-def(2).csv", sep=";")
+        data2021 = data2021[['Date', 'Heure', 'Consommation (MW)']]
+        # changer le format du temps .
+        time_improved = pd.to_datetime(data2021['Date'] +
+                                    ' ' + data2021['Heure'],
+                                    format='%Y-%m-%d %H:%M')
+        data2021['Temps'] = time_improved
+        data2021.set_index('Temps', inplace=True)
+        del data2021['Heure']
+        del data2021['Date']
+        data2021 = data2021.sort_index(ascending=True)
+        m=data2021[['Consommation (MW)']].dropna().mean()
+        for nan in range(len(data2021)-1):
+            if data2021[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data2021['Consommation (MW)'][nan] = m
+        # ____________________Création du Data 2022 du janvier à mai_________________________
+        url = "https://bit.ly/3gowmWv"
+        path_target = "./eco2mix-national-cons-def(3).csv"
+        path, fname = os.path.split(path_target)
+        pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
+        data2022HALF1 = pd.read_csv("eco2mix-national-cons-def(3).csv", sep=";")
+        #data2022HALF1 = data2022HALF1.set_index('Date et Heure')
+        data2022HALF1 = data2022HALF1[['Date', 'Heure', 'Consommation (MW)']]
+        # changer le format du temps
+        time_improved = pd.to_datetime(data2022HALF1['Date'] +
+                                    ' ' + data2022HALF1['Heure'],
+                                    format='%Y-%m-%d %H:%M')
+        data2022HALF1['Temps'] = time_improved
+        data2022HALF1.set_index('Temps', inplace=True)
+        del data2022HALF1['Heure']
+        del data2022HALF1['Date']
+        data2022HALF1 = data2022HALF1.sort_index(ascending=True)
+        m=data2022HALF1[['Consommation (MW)']].dropna().mean()
+        for nan in range(len(data2022HALF1)-1):
+            if data2022HALF1[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data2022HALF1['Consommation (MW)'][nan] = m
+        # remplacer les NaN et la transformation de la consomation du 2022 sur chaque 15 min.
+        # ____________________Création du Data 2022 de junin_________________________
+        url = "https://bit.ly/3Ep9TjU"
+        path_target = "./eco2mix-national-cons-def(4).csv"
+        path, fname = os.path.split(path_target)
+        pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
+        data2022HALF2 = pd.read_csv("eco2mix-national-cons-def(4).csv", sep=";")
+        #Data2022 = Data2022.set_index('Date et Heure')
+        data2022HALF2 = data2022HALF2[['Date', 'Heure', 'Consommation (MW)']]
+        # changer le format du temps
+        time_improved = pd.to_datetime(data2022HALF2['Date'] +
+                                    ' ' + data2022HALF2['Heure'],
+                                    format='%Y-%m-%d %H:%M')
+        data2022HALF2['Temps'] = time_improved
+        data2022HALF2.set_index('Temps', inplace=True)
+        del data2022HALF2['Heure']
+        del data2022HALF2['Date']
+        data2022HALF2 = data2022HALF2.sort_index(ascending=True)
+        data2022HALF2 = data2022HALF2.dropna()
+        #
+        ##
+        datafinal = pd.concat([data2020, data2020, data2021,
+                            data2022HALF1, data2022HALF2], axis=0)
+        return datafinal
 
-    df = pd.read_csv(".data/datafinal.cvs")#pd.read_csv("/Users/mac/Desktop/HAX712X-DOS/Project/Prediction/DataSet.csv")
-    df = df.set_index("Time")
-    df.index = pd.to_datetime(df.index)
-    ts = df[df.index<"2022-11-30 00:00:00"]
-    f, ax = plt.subplots(figsize=(12,6),dpi=200);
-    plt.suptitle('France Electric Power Energy (MW) consumption', fontsize=24);
-    df.plot(ax=ax,rot=90,ylabel='MW');
-    plt.show()
-    df['ds'] = df.index
-    df.rename(columns={'Consommation (MW)': 'y'}, inplace=True)
-    # training data
-    #train, test = train_test_split(df, test_size=0.20, shuffle=False)
-    m = Prophet()
-    # m=Prophet(changepoint_prior_scale=0.01).fit(train)
-    proph = m.fit(df)
-    #traine_fauture = proph.make_future_dataframe(periods=len(test), freq='15T')
-    usecols2019=['Date', 'Heure', "Consommation (MW)"] # variables we needs
-    days = pd.read_csv("/Users/mac/Downloads/3days.csv",usecols=usecols2019, sep = ";")
-    time_improved = pd.to_datetime(days['Date'] +
-                                       ' ' + days['Heure'],
-                                       format='%Y-%m-%d %H:%M')
-    days['Time'] = time_improved  # add the Time to the data
-    days.set_index('Time', inplace=True) # set time as index
-    # remove useles columns
-    del days['Heure']
-    del days['Date']
-    days = days.sort_index(ascending=True)
-    test = days.copy()
-    test['ds'] = test.index
-    test = test.rename(columns={'Consommation (MW)': 'y'}, inplace=False)
-    forcast = proph.predict(test)
-    daypred = forcast[["ds", "yhat"]]
-    daypred = daypred.set_index("ds") 
-    daypred.index = pd.to_datetime(daypred.index)
-    daypred = daypred + 7000 #shifting 
-    #test = test.set_index("ds")
-    #test.index = pd.to_datetime(test.index)
-    f, ax = plt.subplots(figsize=(12,6),dpi=200);
-    plt.suptitle('France Electric Power Energy (MW) consumption', fontsize=24);
-    daypred.plot(ax=ax,rot=90,ylabel='MW');
-    days.plot(ax=ax,rot=90,ylabel='MW');
-    plt.show()
+    #############################################################################
+    ########################DATA OF ONE YEAR ####################################
+    #############################################################################
+
+    def dataframe1():
+        # ____________________Création du Data 2022 du janvier à mai_________________________
+        url = "https://bit.ly/3gowmWv"
+        path_target = "./eco2mix-national-cons-def(3).csv"
+        path, fname = os.path.split(path_target)
+        pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
+        data2022HALF1 = pd.read_csv("eco2mix-national-cons-def(3).csv", sep=";")
+        #data2022HALF1 = data2022HALF1.set_index('Date et Heure')
+        data2022HALF1 = data2022HALF1[['Date', 'Heure', 'Consommation (MW)']]
+        # changer le format du temps
+        time_improved = pd.to_datetime(data2022HALF1['Date'] +
+                                    ' ' + data2022HALF1['Heure'],
+                                    format='%Y-%m-%d %H:%M')
+        data2022HALF1['Temps'] = time_improved
+        data2022HALF1.set_index('Temps', inplace=True)
+        del data2022HALF1['Heure']
+        del data2022HALF1['Date']
+        data2022HALF1 = data2022HALF1.sort_index(ascending=True)
+        for nan in range(len(data2022HALF1)-1):
+            if data2022HALF1[['Consommation (MW)']].isna().iloc[:, 0][nan]:
+                data2022HALF1['Consommation (MW)'][nan] = (
+                    data2022HALF1['Consommation (MW)'][nan-1] + data2022HALF1['Consommation (MW)'][nan+1])/2
+        data2022HALF1['Consommation (MW)'][len(data2022HALF1)-1] = (data2022HALF1['Consommation (MW)']
+                                                            [len(data2022HALF1)-2]+data2022HALF1['Consommation (MW)'][len(data2022HALF1)-3])/2
+        # remplacer les NaN et la transformation de la consomation du 2022 sur chaque 15 min.
+        # ____________________Création du Data 2022 de junin_________________________
+        url = "https://bit.ly/3Ep9TjU"
+        path_target = "./eco2mix-national-cons-def(4).csv"
+        path, fname = os.path.split(path_target)
+        pooch.retrieve(url, path=path, fname=fname, known_hash=None,)
+        data2022HALF2 = pd.read_csv("eco2mix-national-cons-def(4).csv", sep=";")
+        #Data2022 = Data2022.set_index('Date et Heure')
+        data2022HALF2 = data2022HALF2[['Date', 'Heure', 'Consommation (MW)']]
+        # changer le format du temps
+        time_improved = pd.to_datetime(data2022HALF2['Date'] +
+                                    ' ' + data2022HALF2['Heure'],
+                                    format='%Y-%m-%d %H:%M')
+        data2022HALF2['Temps'] = time_improved
+        data2022HALF2.set_index('Temps', inplace=True)
+        del data2022HALF2['Heure']
+        del data2022HALF2['Date']
+        data2022HALF2 = data2022HALF2.sort_index(ascending=True)
+        data2022HALF2 = data2022HALF2.dropna()
+        #
+        ##
+        datafinal = pd.concat([
+                            data2022HALF1, data2022HALF2], axis=0)
+        return datafinal
+    

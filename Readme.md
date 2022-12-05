@@ -22,7 +22,7 @@ Partie prédiction:Consiste à trouver le  modéle mathématique aproprié pour 
 
 <h2>*Affectation des taches:*</h2>
 
-*Crespin:* Partie visualisation.
+*Paul:* Partie visualisation.
 
 *Thamara:* Partie visualisation
 

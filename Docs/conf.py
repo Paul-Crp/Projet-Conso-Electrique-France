@@ -13,14 +13,15 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-from potemodule import *
-#from potemodule.inter_map import *
+# from Projet_M1 import *
+# from Projet_M1.Prediction import *
+# from Projet_M1.Visualisation import *
 
 # -- Project information -----------------------------------------------------
 
-project = 'project name'
-copyright = '2022, auteur'
-author = 'auteur'
+project = 'Module POTE'
+copyright = '2022, Crespin Paul, Lamrini Oualid, Renoir Thamara, Sinibaldi Emma'
+author = 'Crespin Paul, Lamrini Oualid, Renoir Thamara, Sinibaldi Emma'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0.0'

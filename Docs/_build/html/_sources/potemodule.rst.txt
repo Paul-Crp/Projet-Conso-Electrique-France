@@ -1,17 +1,17 @@
-potemodule package
+Le module POTE
 ==================
 
-Subpackages
------------
+Sous-modules
+---------------
 
 .. toctree::
    :maxdepth: 4
 
    potemodule.Prediction
-   potemodule.inter_map
+   potemodule.intermap
 
-Module contents
----------------
+Contenu des modules
+---------------------
 
 .. automodule:: potemodule
    :members:
