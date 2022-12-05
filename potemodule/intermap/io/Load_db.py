@@ -7,21 +7,25 @@ from potemodule.intermap.io import url_db, path_target_db
 class Load_db:
     """
     Téléchargement des données de consommation électrique par foyers de 2018 à 2021 de plusieurs communnes de france.
+    
+    :param url: adresse url du jeu de données
+
+    :type url: string
+
+    :param target_name: chemin local où le jeu de données est enregistrer
+
+    :type target_name: string
     """
 
     def __init__(self, url=url_db, target_name=path_target_db):
         """
-        Téléchargement.
-
-        Paramètres :
-
-        - url : (string) adresse url du jeu de données
-
-        - target_name : (string) chemin local où le jeu de données est enregistrer
+        Téléchargement.        
         """
         path, fname = os.path.split(path_target_db)
         pooch.retrieve(url, path=path, fname=fname, known_hash=None)
-        print("Merci de patienter le téléchargement des données est en cours.\n",
+        if not os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                   "..", "data", "TableauTraité.csv")):
+            print("Merci de patienter le téléchargement des données est en cours.\n",
                 "Cette action peut prendre plusieurs minutes.")
 
     @staticmethod

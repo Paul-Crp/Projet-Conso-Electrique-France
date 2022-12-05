@@ -13,7 +13,7 @@ def tri(df_conso):
     - df_conso : (dataframe) dataset contenant les consommation électrique par foyers
     """
     df_conso.drop(
-            df_conso.columns[[1, 2, 3, 4, 5, 6, 9, 10, 12, 14, 15]], axis=1, inplace=True)
+        df_conso.columns[[1, 2, 3, 4, 5, 6, 9, 10, 12, 14, 15]], axis=1, inplace=True)
 
     Dept = []
     for i in df_conso['Code INSEE de la commune']:
