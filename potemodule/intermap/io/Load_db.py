@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import pooch
 from potemodule.intermap.io import url_db, path_target_db
-
+import tqdm
 
 class Load_db:
     """
@@ -22,11 +22,11 @@ class Load_db:
         Téléchargement.        
         """
         path, fname = os.path.split(path_target_db)
-        pooch.retrieve(url, path=path, fname=fname, known_hash=None)
-        if not os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                   "..", "data", "TableauTraité.csv")):
-            print("Merci de patienter le téléchargement des données est en cours.\n",
-                "Cette action peut prendre plusieurs minutes.")
+        if os.path.isfile('./potemodule/intermap/data/conso.csv'):
+            print("La base de données existe déjà.")
+        else:
+            print("Téléchargement de la base de données, elle fait 209 Mb, ça risque de prendre un moment...")
+            pooch.retrieve(url, path=path, fname=fname, known_hash=None, progressbar=True)
 
     @staticmethod
     def save_as_df():

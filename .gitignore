@@ -1,7 +1,9 @@
 *.csv
 __pycache__
-*.venv
+.venv
 via.html
 *.json
+*.venv
+via.html
 Rendus
 Docs/_build
