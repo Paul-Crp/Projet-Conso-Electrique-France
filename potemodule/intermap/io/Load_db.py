@@ -21,6 +21,8 @@ class Load_db:
         """
         path, fname = os.path.split(path_target_db)
         pooch.retrieve(url, path=path, fname=fname, known_hash=None)
+        print("Merci de patienter le téléchargement des données est en cours.\n",
+                "Cette action peut prendre plusieurs minutes.")
 
     @staticmethod
     def save_as_df():
@@ -29,7 +31,7 @@ class Load_db:
         """
 
         df_db = pd.read_csv(
-            path_target,
+            path_target_db,
             na_values="",
             low_memory=False,
             sep=";"
