@@ -3,3 +3,7 @@ __pycache__
 .venv
 via.html
 *.json
+*.venv
+via.html
+Rendus
+Docs/_build
