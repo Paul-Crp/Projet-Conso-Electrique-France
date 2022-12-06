@@ -1,6 +1,6 @@
+#%%
 import warnings
 import statsmodels.api as sm
-#import data
 from statsmodels.tools.eval_measures import rmse
 # mathematical operations
 import numpy as np
@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 sns.set()
-
+# creer une classe 
 def modelle():
     """" prediction modele"""
     # machine learning and statistical methods

@@ -1,22 +1,35 @@
+potemodule.Prediction package
+=============================
 
-potemodule.Prediction.data 
----------------------------
+Submodules
+----------
+
+PredictionModel
+----------------
+
+.. automodule:: potemodule.Prediction.PredictionModel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+data 
+-----
 
 .. automodule:: potemodule.Prediction.data
    :members:
    :undoc-members:
    :show-inheritance:
 
-potemodule.Prediction.datatest 
--------------------------------
+datatest
+--------
 
 .. automodule:: potemodule.Prediction.datatest
    :members:
    :undoc-members:
    :show-inheritance:
 
-potemodule.Prediction.prophetmodel 
------------------------------------
+prophetmodel 
+-------------
 
 .. automodule:: potemodule.Prediction.prophetmodel
    :members:
@@ -31,4 +44,10 @@ potemodule.Prediction.ucmodele module
    :undoc-members:
    :show-inheritance:
 
+Module contents
+---------------
 
+.. automodule:: potemodule.Prediction
+   :members:
+   :undoc-members:
+   :show-inheritance:

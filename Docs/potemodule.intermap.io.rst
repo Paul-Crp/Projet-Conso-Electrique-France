@@ -1,8 +1,8 @@
-Module potemodule.intermap.io
+potemodule.intermap.io package
 ==============================
 
-Sous-modules
---------------
+Submodules
+----------
 
 potemodule.intermap.io.Load\_db module
 --------------------------------------

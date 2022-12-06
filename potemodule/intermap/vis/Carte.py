@@ -25,7 +25,7 @@ def carte(df_final, df_geo):
         nan_fill_color='White',
         fill_opacity=0.7,
         line_opacity=0.2,
-        legend_name='Consommation éléctrique annuelle moyennne',
+        legend_name='Consommation électrique annuelle moyenne',
         highlight=True,
         line_color='black'
     ).add_to(fmap)
@@ -47,7 +47,7 @@ def legend(df_final, fmap):
 
     folium.features.GeoJson(
         data=df_final,
-        name='Consommation éléctrique annuelle moyenne',
+        name='Consommation électrique annuelle moyenne',
         smooth_factor=2,
         style_function=lambda x: {'color': 'black',
                                   'fillColor': 'transparent', 'weight': 0.5},
@@ -56,7 +56,7 @@ def legend(df_final, fmap):
                     'Consommation annuelle moyenne de la commune (MWh)',
                     ],
             aliases=["Ville :",
-                     "Consommation annuelle moyenne (en MWh):",
+                     "Consommation annuelle moyenne par logements (en MWh):",
                      ],
             localize=True,
             sticky=False,

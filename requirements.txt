@@ -8,3 +8,4 @@ geopandas
 matplotlib
 tqdm
 warnings
+mpld3

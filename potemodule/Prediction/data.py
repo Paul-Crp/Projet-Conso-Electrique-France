@@ -1,11 +1,12 @@
+#%%
 import pandas as pd
 import os
 import pooch
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
-from potemodule.Prediction import urls,paths
+from Prediction import urls,paths
 
-class managedata():
+class Load():
     """
         Cette classe permet le téléchargement des données de consommation électrique de 2019 à  2022.
 
@@ -17,8 +18,8 @@ class managedata():
 
         :type target_name: string
     """
-    def __init__(self, url=urls, target_name=paths):
-        """"
+    def __init__(self,urls,paths):
+        """
         Fonction d'initialisation 
         Elle permet le téléchargement des données au bon emplacement "./Data"
 
@@ -26,12 +27,24 @@ class managedata():
         for i in range(5):
             path ,fname = os.path.split(paths[i])
             pooch.retrieve(urls[i], path=path, fname=fname, known_hash=None,)
-    def dataframe():
-        """ Manipulation du jeu de données de 01/01/2019 jusqu'à 06/12/2022.
+#%%    
+class Processdf():
+    """ 
+    Processing data
 
-            :return: le jeu de données pour chaque 15 min 01/01/2019 jusqu'à 06/12/2022
-            
-            :rtype: Data frame 
+    """
+    def __init__(self,id) -> None:
+        self.id = id
+    def cleaningdf(self):
+        """ 
+        Manipulation du jeu de données de 01/01/2019 jusqu'à 06/12/2022.
+        Manipulations:
+                     -Recupérer les colonnes **Date**,**Heure** et **Consommation (MW)**
+                     -Supprimer les valeurs manquantes 
+                     -Basculer la frequence des observations de **60 min** à **15 min**  
+        :return: le jeu de données pour chaque 15 min 01/01/2019 jusqu'à 06/12/2022
+        
+        :rtype: Data frame 
         """
         data1 = pd.read_csv("./Data/data1.csv", sep=";")
         data1 = data1[['Date', 'Heure', 'Consommation (MW)']]
@@ -106,7 +119,24 @@ class managedata():
         data42 = data42.sort_index(ascending=True)
         data42 = data42.dropna()
         df = pd.concat([data1, data2, data3,
-                        data41, data42], axis=0)
-
+                        data41, data42], axis=0) 
         return df
 
+    def df_cleaned(self):
+
+        """ Récupere la dataframe préte à l'emploit directementt du package en assurant """
+        if ( id == 1):
+            df = pd.read_csv("./Data/dattfinal.csv", sep=";") 
+            return df
+        
+        #if id==2:
+            #df=pd.read_csv("./Data/dattfinal_gaz.csv", sep=";") 
+        #if id==3:
+            #df=pd.read_csv("./Data/dattfinal_nucleaire.csv", sep=";")     
+        
+    
+   
+
+
+# %%
+dff.to_csv('./Data/daatfinall.csv', columns=['Temps', 'Consommation (MW)'], index='Temps')
