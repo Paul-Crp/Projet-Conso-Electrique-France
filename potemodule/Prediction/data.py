@@ -136,7 +136,7 @@ class Processdf():
         Récupere la dataframe préte à l'emploit directementt du package 
         """
         if ( self.id == 1):
-            df = pd.read_csv("./Data/datafinall.csv") 
+            df = pd.read_csv("potemodule/Prediction/Data/datafinall.csv") 
             return df
         if ( self.id == 2):
             df = pd.read_csv("./Data/datagaz.csv") 
