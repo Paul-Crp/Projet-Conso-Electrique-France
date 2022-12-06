@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import mpld3                                          # Pour tranfirmer les graphiques en html
+import mpld3                             # Pour transformer les graphiques en html
 from matplotlib.pyplot import figure
 import folium
 
@@ -17,9 +17,9 @@ class graphique:
         fig=figure()
         for i in range(4*self.k,4*self.k+1):     #Par simplicité, les villes sans données pour 2018 ont quand même été conservées dans la liste des villes, mais avec une valeur de 0. On vérifie donc si la valeur est nulle ou non pour éviter de tracer un graphique avec une valeur de 0.
             if valeurs[i]==0:
-                plt.plot([2019,2020,2021],  [valeurs[i+1],valeurs[i+2],valeurs[i+3] ] )
+                plt.plot([2019,2020,2021],  [valeurs[i+1],valeurs[i+2],valeurs[i+3] ], 'ks-', mec='w', mew=5, ms=20)
             else:
-                plt.plot([2018,2019,2020,2021],  [valeurs[i],valeurs[i+1],valeurs[i+2],valeurs[i+3] ] )
+                plt.plot([2018,2019,2020,2021],  [valeurs[i],valeurs[i+1],valeurs[i+2],valeurs[i+3] ], 'ks-', mec='w', mew=5, ms=20)
         return(fig)
 
 
@@ -31,7 +31,7 @@ def Marker(Carte, k,d):
     A=["Aix-en-Provence", "Angers", "Bordeaux",    "Brest", "Clermont-Ferrand", "Dijon", "Le Havre", "Le Mans", "Lille", "Lyon", "Marseille", "Montpellier", "Nantes", "Nice", "Nîmes",      "Paris",   "Reims",  "Rennes", "Saint-Denis", "Saint-Étienne", "Toulon", "Toulouse", "Villeurbanne"]
     b=graphique(k)                        #On crée un objet graphique pour la ville k.
     f=mpld3.fig_to_html(b.plotage(d))     #On plot et transforme le graphique en html.
-    c='''</style><h1>'''+A[k]+'''</h1>''' #On ajoute le nom de la ville au graphique en html.
+    c='''</style><h1>'''+'''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''+A[k]+'''</h1>''' #On ajoute le nom de la ville au graphique en html.
     elements = f.split("</style>")
     f = elements[0] + c + elements[1]
     folium.Marker( 
