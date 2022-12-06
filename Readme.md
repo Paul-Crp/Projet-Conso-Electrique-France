@@ -1,4 +1,4 @@
-# Visualisation et prediction pour (mettre la date) de la consommation électrique en France
+# Visualisation et prediction pour **mettre la date** de la consommation électrique en France
 
 Ce projet est prévu pour télécharger une banque de données de la consommation en France et, au choix:
 - Créer une carte interactive permettant de visualiser la moyenne de consommation des plus grandes villes de chaque départements de France par années, sur 4 ans.
