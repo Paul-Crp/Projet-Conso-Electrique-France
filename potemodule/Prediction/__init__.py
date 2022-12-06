@@ -1,4 +1,4 @@
-from Predictio import *
+from . import *
 
 url1 = "https://bit.ly/3i1OFkU"
 url2 = "https://bit.ly/3V81yIg"
