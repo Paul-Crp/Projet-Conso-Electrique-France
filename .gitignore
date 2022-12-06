@@ -1,4 +1,6 @@
-*.csv
+T*.csv
+c*.csv
+a*.csv
 __pycache__
 .venv
 via.html
