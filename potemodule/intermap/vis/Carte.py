@@ -41,7 +41,7 @@ def legend(df_final, fmap):
     """
     folium.features.GeoJson(
         data=df_final,
-        name='Consommation éléctrique annuelle moyenne',
+        name='Consommation électrique annuelle moyenne',
         smooth_factor=2,
         style_function=lambda x: {'color': 'black',
                                   'fillColor': 'transparent', 'weight': 0.5},
@@ -50,7 +50,7 @@ def legend(df_final, fmap):
                     'Consommation annuelle moyenne de la commune (MWh)',
                     ],
             aliases=["Ville :",
-                     "Consommation annuelle moyenne (en MWh):",
+                     "Consommation annuelle moyenne par logements (en MWh):",
                      ],
             localize=True,
             sticky=False,
