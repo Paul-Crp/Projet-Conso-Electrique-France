@@ -22,7 +22,7 @@ def carte(df_final, df_geo):
         nan_fill_color='White',
         fill_opacity=0.7,
         line_opacity=0.2,
-        legend_name='Consommation éléctrique annuelle moyennne',
+        legend_name='Consommation électrique annuelle moyenne',
         highlight=True,
         line_color='black'
     ).add_to(fmap)
