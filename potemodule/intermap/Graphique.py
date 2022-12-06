@@ -5,6 +5,7 @@ import folium
 
 
 class graphique:
+<<<<<<< HEAD
     """
     Graphique de la consommation sur 4 ans à partir d'un dictionaire extraite de la base de données.
 
@@ -20,24 +21,36 @@ class graphique:
 
 
     def __init__(self,k):
+=======
+    def __init__(self, k):
+>>>>>>> 2aa3ecd67bceb09c88184a167963da550e76422e
         self.k = k
 
-    def plotage(self,d):
+    def plotage(self, d):
         valeurs = []
 
-        for p,v in d.items():
-            valeurs = valeurs + [v]              #On récupère les valeurs de consommation. Les années étant toujours les mêmes et les villes dans le même ordre, on ne les récupère pas.
+        for p, v in d.items():
+            # On récupère les valeurs de consommation. Les années étant toujours les mêmes et les villes dans le même ordre, on ne les récupère pas.
+            valeurs = valeurs + [v]
 
-        fig=figure()
-        for i in range(4*self.k,4*self.k+1):     #Par simplicité, les villes sans données pour 2018 ont quand même été conservées dans la liste des villes, mais avec une valeur de 0. On vérifie donc si la valeur est nulle ou non pour éviter de tracer un graphique avec une valeur de 0.
-            if valeurs[i]==0:
-                plt.plot([2019,2020,2021],  [valeurs[i+1],valeurs[i+2],valeurs[i+3] ], 'ks-', mec='w', mew=5, ms=20)
+        fig = figure()
+        # Par simplicité, les villes sans données pour 2018 ont quand même été conservées dans la liste des villes, mais avec une valeur de 0. On vérifie donc si la valeur est nulle ou non pour éviter de tracer un graphique avec une valeur de 0.
+        for i in range(4*self.k, 4*self.k+1):
+            if valeurs[i] == 0:
+                plt.plot([2019, 2020, 2021],  [valeurs[i+1], valeurs[i+2],
+                         valeurs[i+3]], 'ks-', mec='w', mew=5, ms=20)
             else:
-                plt.plot([2018,2019,2020,2021],  [valeurs[i],valeurs[i+1],valeurs[i+2],valeurs[i+3] ], 'ks-', mec='w', mew=5, ms=20)
-        return(fig)
+                plt.plot([2018, 2019, 2020, 2021],  [valeurs[i], valeurs[i+1],
+                         valeurs[i+2], valeurs[i+3]], 'ks-', mec='w', mew=5, ms=20)
+        return (fig)
 
 
+def Marker(Carte, k, d):
+    Coord = [43.53, 5.45, 47.47, -0.56, 44.83, -0.34, 48.23, -4.49, 45.78, 3.08, 47.32, 5.04, 49.49, 0.1, 48, 0.2, 50.64, 3.06, 45.76, 4.83, 43.3, 5.37, 43.61,
+             3.88, 47.22, 1.55, 43.7, 7.27, 43.83, 4.36, 48.86, 2.35, 49.27, 4.03, 48.11, -1.68, -20.87, 55.44, 45.43, 4.39, 43.12, 5.93, 43.6, 1.44, 45.77, 4.88]
+    # Coord est une liste contenant les coordonnées des villes dans l'ordre de la liste A.
 
+<<<<<<< HEAD
 def Marker(Carte, k,d):
 
     """
@@ -64,18 +77,28 @@ def Marker(Carte, k,d):
     b=graphique(k)                        #On crée un objet graphique pour la ville k.
     f=mpld3.fig_to_html(b.plotage(d))     #On plot et transforme le graphique en html.
     c='''</style><h1>'''+'''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''+A[k]+'''</h1>''' #On ajoute le nom de la ville au graphique en html.
+=======
+    A = ["Aix-en-Provence", "Angers", "Bordeaux",    "Brest", "Clermont-Ferrand", "Dijon", "Le Havre", "Le Mans", "Lille", "Lyon", "Marseille",
+         "Montpellier", "Nantes", "Nice", "Nîmes",      "Paris",   "Reims",  "Rennes", "Saint-Denis", "Saint-Étienne", "Toulon", "Toulouse", "Villeurbanne"]
+    b = graphique(k)  # On crée un objet graphique pour la ville k.
+    # On plot et transforme le graphique en html.
+    f = mpld3.fig_to_html(b.plotage(d))
+    c = '''</style><h1>'''+'''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''' + \
+        A[k]+'''</h1>'''  # On ajoute le nom de la ville au graphique en html.
+>>>>>>> 2aa3ecd67bceb09c88184a167963da550e76422e
     elements = f.split("</style>")
     f = elements[0] + c + elements[1]
-    folium.Marker( 
-        location=[Coord[2*k],Coord[2*k+1]],
+    folium.Marker(
+        location=[Coord[2*k], Coord[2*k+1]],
         popup=folium.Popup(
             folium.IFrame(
                 html=f,
                 width=600,
                 height=550),
-                max_width=700)).add_to(Carte) #On ajoute le marqueur à la carte.
+            max_width=700)).add_to(Carte)  # On ajoute le marqueur à la carte.
 
-    plt.close('all') #On ferme le graphique pour éviter de surcharger la mémoire.
-    return(Carte)
+    # On ferme le graphique pour éviter de surcharger la mémoire.
+    plt.close('all')
+    return (Carte)
 
-#Cette fonction permet de créer un marqueur sur la carte avec le graphique correspondant à la ville k.
+# Cette fonction permet de créer un marqueur sur la carte avec le graphique correspondant à la ville k.
