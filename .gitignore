@@ -8,4 +8,4 @@ via.html
 *.venv
 via.html
 Rendus
-Docs/_build
+.vscode
