@@ -2,7 +2,7 @@
 
 Ce projet est prévu pour télécharger une banque de données de la consommation en France et, au choix:
 - Créer une carte interactive permettant de visualiser la moyenne de consommation des plus grandes villes de chaque départements de France par années, sur 4 ans.
-- Avoir une prévision de la consommation électrique du 8 décembre ainsi qu ela visualisation de la prediction du Gaz.
+- Avoir une prévision de la consommation électrique du 8 décembre ainsi que la visualisation de la prediction du Gaz.
 
 ## Installation
 
