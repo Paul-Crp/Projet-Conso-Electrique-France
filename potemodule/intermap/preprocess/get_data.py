@@ -8,10 +8,11 @@ def tri(df_conso):
     Suppression des colonnes non nécessaire à la visualisation et ajout d'une colonne 'Département' contenant le numéro de département de chaque adresse.
     Tri des données pour conserve la ville la plus peuplée par département.
 
-    Paramètres :
+    :param df_conso: dataset contenant les consommation électrique par foyers
 
-    - df_conso : (dataframe) dataset contenant les consommation électrique par foyers
+    :type df_conso: dataframe
     """
+
     df_conso.drop(
         df_conso.columns[[1, 2, 3, 4, 5, 6, 9, 10, 12, 14, 15]], axis=1, inplace=True)
 
@@ -42,10 +43,11 @@ def get_conso(df_conso):
     """
     Extraction des données de consommation moyenne annuelle par habitant d'une ville par département triées.
 
-    Paramètres :
+    :param df_conso: jeu de données contenant les consommations électriques par foyers
 
-    - df_conso : (dataframe) jeu de données contenant les consommations électriques par foyers
+    :type df_conso: dataframe
     """
+
     df = tri(df_conso)
 
     df = df.groupby(['Département', 'Nom de la commune', 'Année'])[
@@ -58,12 +60,13 @@ def get_conso(df_conso):
 
 def get_geo(df_geo):
     """
-    Extraction des numéros, nom et contours des département de France.
+    Extraction des numéros, nom et contours des départements de France.
 
-    Paramètres :
+    :param df_geo: contours des départements français au format json
 
-    - df_geo : (dataframe) contours des départements français au format json
+    :type df_geo: dataframe
     """
+
     geo = df_geo.loc[:, ('code', 'nom', 'geometry')]
 
     return (geo)
@@ -73,12 +76,15 @@ def final_data(df_conso, df_geo):
     """
     Fusion du dataframe des contours des départements français trié et du dataframe de la consommation électrique trié.
 
-    Paramètres :
-    
-    - df_conso : (dataframe) données de consommation triées
-    
-    - df_geo : (dataframe) contours des départements français trié
+    :param df_conso: données de consommation triées
+
+    :type df_conso: dataframe
+
+    :param df_geo: contours des départements français trié
+
+    :type df_geo: dataframe
     """
+
     df_final = get_geo(df_geo).merge(get_conso(df_conso),
                                      left_on='code', right_on='Département', how='outer')
     df_final = df_final[~df_final['geometry'].isna()]
