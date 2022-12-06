@@ -75,5 +75,7 @@ class Model():
 #obj=Model(debut=start1,fin=end1,df=df)
 #pred=obj.mod()
 
-
+#_______ploter la pred des resources ____
+#essayer d ajouter un id pour selectionner le plot qui co,nvient 
+#manip de la data des resources 
 # %%
