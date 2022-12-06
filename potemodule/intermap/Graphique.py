@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import mpld3                                          # Pour tranfirmer les graphiques en html
 from matplotlib.pyplot import figure
 import folium
-plt.rcParams.update({'figure.max_open_warning': 0})   # Pour éviter le warning de trop de figures ouvertes.
 
 
 class graphique:
@@ -43,6 +42,8 @@ def Marker(Carte, k,d):
                 width=600,
                 height=550),
                 max_width=700)).add_to(Carte) #On ajoute le marqueur à la carte.
+
+    plt.close('all') #On ferme le graphique pour éviter de surcharger la mémoire.
     return(Carte)
 
 #Cette fonction permet de créer un marqueur sur la carte avec le graphique correspondant à la ville k.
