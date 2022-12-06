@@ -67,13 +67,17 @@ def Marker(Carte, k,d):
 
     A = ["Aix-en-Provence", "Angers", "Bordeaux",    "Brest", "Clermont-Ferrand", "Dijon", "Le Havre", "Le Mans", "Lille", "Lyon", "Marseille",
           "Montpellier", "Nantes",   "Nice",    "Nîmes",     "Paris",    "Reims",   "Rennes",  "Saint-Denis", "Saint-Étienne", "Toulon", "Toulouse", "Villeurbanne"]
+
     b = graphique(k)  # On crée un objet graphique pour la ville k.
     # On plot et transforme le graphique en html.
     f = mpld3.fig_to_html(b.plotage(d))
+
     c = '''</style><h1>'''+'''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''' + \
         A[k]+'''</h1>'''  # On ajoute le nom de la ville au graphique en html.
+    
     elements = f.split("</style>")
     f = elements[0] + c + elements[1]
+
     folium.Marker(
         location=[Coord[2*k], Coord[2*k+1]],
         popup=folium.Popup(
@@ -85,9 +89,5 @@ def Marker(Carte, k,d):
 
     # On ferme le graphique pour éviter de surcharger la mémoire.
     plt.close('all')
+
     return (Carte)
-
-    plt.close('all') #On ferme le graphique pour éviter de surcharger la mémoire.
-    return(Carte)
-
-#Cette fonction permet de créer un marqueur sur la carte avec le graphique correspondant à la ville k.
