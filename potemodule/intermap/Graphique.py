@@ -41,9 +41,7 @@ class graphique:
         return (fig)
 
 
-
-def Marker(Carte, k,d):
-
+def Marker(Carte, k, d):
     """
     Création d'un marqueur incluant le graphique sur la carte pour la ville k.
 
@@ -61,12 +59,12 @@ def Marker(Carte, k,d):
 
     """
 
-    Coord=[43.53,5.45, 47.47,-0.56, 44.83,-0.34, 48.23,-4.49, 45.78,3.08, 47.32,5.04, 49.49,0.1, 48,0.2, 50.64,3.06, 45.76,4.83, 43.3,5.37,
-            43.61,3.88, 47.22,1.55, 43.7,7.27, 43.83,4.36, 48.86,2.35, 49.27,4.03, 48.11,-1.68, -20.87,55.44, 45.43,4.39, 43.12,5.93, 43.6,1.44, 45.77,4.88]
-    #Coord est une liste contenant les coordonnées des villes dans l'ordre de la liste A.
+    Coord = [43.53, 5.45, 47.47, -0.56, 44.83, -0.34, 48.23, -4.49, 45.78, 3.08, 47.32, 5.04, 49.49, 0.1, 48, 0.2, 50.64, 3.06, 45.76, 4.83, 43.3, 5.37,
+             43.61, 3.88, 47.22, 1.55, 43.7, 7.27, 43.83, 4.36, 48.86, 2.35, 49.27, 4.03, 48.11, -1.68, -20.87, 55.44, 45.43, 4.39, 43.12, 5.93, 43.6, 1.44, 45.77, 4.88]
+    # Coord est une liste contenant les coordonnées des villes dans l'ordre de la liste A.
 
     A = ["Aix-en-Provence", "Angers", "Bordeaux",    "Brest", "Clermont-Ferrand", "Dijon", "Le Havre", "Le Mans", "Lille", "Lyon", "Marseille",
-          "Montpellier", "Nantes",   "Nice",    "Nîmes",     "Paris",    "Reims",   "Rennes",  "Saint-Denis", "Saint-Étienne", "Toulon", "Toulouse", "Villeurbanne"]
+         "Montpellier", "Nantes",   "Nice",    "Nîmes",     "Paris",    "Reims",   "Rennes",  "Saint-Denis", "Saint-Étienne", "Toulon", "Toulouse", "Villeurbanne"]
 
     b = graphique(k)  # On crée un objet graphique pour la ville k.
     # On plot et transforme le graphique en html.
@@ -74,7 +72,7 @@ def Marker(Carte, k,d):
 
     c = '''</style><h1>'''+'''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''' + \
         A[k]+'''</h1>'''  # On ajoute le nom de la ville au graphique en html.
-    
+
     elements = f.split("</style>")
     f = elements[0] + c + elements[1]
 

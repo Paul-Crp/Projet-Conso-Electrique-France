@@ -2,13 +2,13 @@ import pandas as pd
 
 
 def Filtrer():
+    """"
 
-    '''
+    Cette fonction va filtrer les données du csv pour ne garder que les données qui nous intéressent. 
+    Elle retourne un dictionnaire qui contient les données que l'on va utiliser pour la carte.
 
-    Cette fonction va filtrer les données du csv pour ne garder que les données qui nous intéressent. Elle retourne un dictionnaire qui contient les données que l'on va utiliser pour la carte.
+    """
 
-    '''
-    
     ChoixVilles = ['Aix-en-Provence', "Angers", "Bordeaux", "Brest", "Clermont-Ferrand", "Dijon", "Le Havre", "Le Mans", "Lille", "Lyon", "Marseille",
                    "Montpellier", "Nantes", "Nice", "Nîmes", "Paris", "Reims", "Rennes", "Saint-Denis", "Saint-Etienne", "Saint-Étienne", "Toulon", "Toulouse", "Villeurbanne"]
     df = pd.read_csv('./potemodule/intermap/data/conso.csv',
@@ -39,7 +39,7 @@ def Filtrer():
     del d['Total-Saint-Etienne2021']
     del d['Total-Saint-Étienne2018']
 
-    #Les données de Saint-Etienne en 2018 sont sans accents, mais celle des autres années sont avec.
+    # Les données de Saint-Etienne en 2018 sont sans accents, mais celle des autres années sont avec.
     # Par simplicité, on a mis un doublon avec et sans accent dans la liste des villes, mais cela pose problème pour le dictionnaire.
     # On supprime donc les données vides avec parcimonie.
 
