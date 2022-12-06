@@ -20,19 +20,10 @@ class Model():
     :type fin: Date dans le  format YYYY_MM_DD H:M:S
 
     """
-    def __init__(self,debut,fin,nbr):
+    def __init__(self,debut,fin,df):
         self.debut=debut
         self.fin=fin
-        self.nbr=nbr
-    def df_cleaned(self):
-        """Récupere la dataframe préte à l'emploit directementt du package en assurant """
-        if self.nbr==1:
-            df=pd.read_csv("./Data/dattfinal.csv", sep=";") 
-        #if id==2:
-            #df=pd.read_csv("./Data/dattfinal_gaz.csv", sep=";") 
-        #if id==3:
-            #df=pd.read_csv("./Data/dattfinal_nucleaire.csv", sep=";")     
-        return df
+        self.df=df
     def mod(self):
         """ 
         Le modele de prédiction sur une période donnnée 
@@ -43,7 +34,8 @@ class Model():
         
         """
 
-        df = pd.read_csv("./Data/datafinal.csv",sep=";")#df_cleaned(self)
+        #df =data.Processdf(1).cleaningdf()#
+        #np.asarray(df.iloc[70176:,])
         UCM = sm.tsa.UnobservedComponents(df,
                                             level='dtrend',
                                             irregular=True,
@@ -56,7 +48,7 @@ class Model():
                                                                'harmonics': 2},
                                                            {'period': 35066, 'harmonics': 1}])
         m=UCM.fit()
-        pred=m.predect(start=self.debut,end=self.fin)
+        pred=m.predict(start=self.debut,end=self.fin)
         pred = pred.to_frame()
         pred = pred - 5000
         return pred
@@ -76,13 +68,11 @@ class Model():
         plt.legend()
         return
 #%%
-start="2022-12-08 00:00:00"
-end="2022-12-08 23:45:00"
-obj=Model(start,end,1)
-pred=obj.mod()
-
-
-
+#start1="2022-12-08 00:00:00"
+#end1="2022-12-08 23:45:00"
+#df=data.Processdf(1).claeningdf()
+#obj=Model(debut=start1,fin=end1,df=df)
+#pred=obj.mod()
 
 
 # %%

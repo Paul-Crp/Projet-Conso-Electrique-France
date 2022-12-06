@@ -4,11 +4,9 @@ import os
 import pooch
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
-from Prediction import urls,paths
-
-class Load():
+def load():
     """
-        Cette classe permet le téléchargement des données de consommation électrique de 2019 à  2022.
+        Cette fonction permet le téléchargement des données de consommation électrique de 2019 à  2022.
 
         :param urls: adresses urls du jeu de données
 
@@ -18,16 +16,22 @@ class Load():
 
         :type target_name: string
     """
-    def __init__(self,urls,paths):
-        """
-        Fonction d'initialisation 
-        Elle permet le téléchargement des données au bon emplacement "./Data"
-
-        """
-        for i in range(5):
-            path ,fname = os.path.split(paths[i])
-            pooch.retrieve(urls[i], path=path, fname=fname, known_hash=None,)
-#%%    
+    url1 = "https://bit.ly/3i1OFkU"
+    url2 = "https://bit.ly/3V81yIg"
+    url3 = "https://bit.ly/3UO3NRc"
+    url41 = "https://bit.ly/3gowmWv"
+    url42 = "https://bit.ly/3Ep9TjU"
+    urls = [url1, url2, url3, url41, url42]  
+    path_target1 =".//Data//data1.csv"
+    path_target2 =".//Data//data2.csv" 
+    path_target3 =".//Data//data3.csv" 
+    path_target41 =".//Data//data41.csv"
+    path_target42 =".//Data//data42.csv"
+    paths=[path_target1,path_target2,path_target3,path_target41,path_target42]
+    for i in range(5):
+        path ,fname = os.path.split(paths[i])
+        pooch.retrieve(urls[i], path=path, fname=fname, known_hash=None,)
+   
 class Processdf():
     """ 
     Processing data
@@ -125,8 +129,9 @@ class Processdf():
     def df_cleaned(self):
 
         """ Récupere la dataframe préte à l'emploit directementt du package en assurant """
-        if ( id == 1):
-            df = pd.read_csv("./Data/dattfinal.csv", sep=";") 
+        if ( self.id == 1):
+            df = pd.read_csv(".//Data//datafinall.csv") 
+            #df.set_index('Temps')
             return df
         
         #if id==2:
@@ -139,4 +144,14 @@ class Processdf():
 
 
 # %%
-dff.to_csv('./Data/daatfinall.csv', columns=['Temps', 'Consommation (MW)'], index='Temps')
+#df=Processdf(1).cleaningdf()
+
+
+#load()
+# %%
+#df.to_csv(".//Data//datafinall.csv",sep=";",index=False,mode='w')
+# %%
+#df=Processdf(1).cleaningdf()
+#ts=Processdf(1).df_cleaned()
+
+# %%
