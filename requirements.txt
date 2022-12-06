@@ -9,3 +9,4 @@ matplotlib
 tqdm        # Pour afficher des barres de téléchargement
 warnings
 mpld3       # Pour transformer les graphiques matplotlib en html
+statsmodels # Pour les modèles statistiques
