@@ -133,7 +133,7 @@ class Processdf():
     def df_cleaned(self):
 
         """
-        Récupere la dataframe préte à l'emploit directementt du package en assurant
+        Récupere la dataframe préte à l'emploit directementt du package 
         """
         if ( self.id == 1):
             df = pd.read_csv("./Data/datafinall.csv") 

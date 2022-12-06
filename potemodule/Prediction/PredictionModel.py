@@ -21,9 +21,9 @@ class Forcast():
 
     :param pred: La prediction retenu par la méthode *ucm*
 
-    :type pred:Dataframe
+    :type pred: Dataframe
 
-    :param id:vaut 1 si la prediction porte sur la consommation\\
+    :param id: vaut 1 si la prediction porte sur la consommation\\
                 et vaut 2 si elle porte sur le Gaz .
     :type id: Entier            
                  

@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sous-module potemodule.intermap.preprocess &mdash; Documentation potemodule 1.0.0</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Sous-module potemodule.intermap.preprocess &mdash; Documentation potemodule 1.0.0</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
         <script src="../_static/translations.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -32,32 +30,38 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Installation, contacts et sources</span></p>
+              <p class="caption"><span class="caption-text">Installation, contacts et sources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Comment installer le package potemodule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/contacts.html">Contacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/sources.html">Sources</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Prédiction</span></p>
+<p class="caption"><span class="caption-text">Prédiction</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Prediction/potemodule.Prediction.html">Module potemodule.Prediction</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Visualisation</span></p>
+<p class="caption"><span class="caption-text">Visualisation</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="potemodule.intermap.html">Sous-modules</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="potemodule.intermap.io.html">Sous-module potemodule.intermap.io</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Sous-module potemodule.intermap.preprocess</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#but-du-sous-module">But du sous-module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-potemodule.intermap.preprocess.get_data">Fonctions du sous-module</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="potemodule.intermap.html">Module potmodule.intermap</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="potemodule.intermap.html#but-du-module">But du module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="potemodule.intermap.html#sous-modules">Sous-modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="potemodule.intermap.io.html">Sous-module potemodule.intermap.io</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sous-module potemodule.intermap.preprocess</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#but-du-sous-module">But du sous-module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fonctions-du-sous-module">Fonctions du sous-module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="potemodule.intermap.vis.html">Sous-module potemodule.intermap.vis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="potemodule.intermap.vis.html">Sous-module potemodule.intermap.vis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="potemodule.intermap.Filtration.html">Sous-module potemodule.intermap.Filtration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="potemodule.intermap.Graphique.html">Sous-mmodule potemodule.intermap.Graphique</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -76,10 +80,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="potemodule.intermap.html">Sous-modules</a></li>
+          <li class="breadcrumb-item"><a href="potemodule.intermap.html">Module potmodule.intermap</a></li>
       <li class="breadcrumb-item active">Sous-module potemodule.intermap.preprocess</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/Visualisation/potemodule.intermap.preprocess.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="../_sources/Visualisation/potemodule.intermap.preprocess.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -87,73 +91,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="sous-module-potemodule-intermap-preprocess">
-<h1>Sous-module potemodule.intermap.preprocess<a class="headerlink" href="#sous-module-potemodule-intermap-preprocess" title="Lien permanent vers ce titre"></a></h1>
-<section id="but-du-sous-module">
-<h2>But du sous-module<a class="headerlink" href="#but-du-sous-module" title="Lien permanent vers ce titre"></a></h2>
+  <div class="section" id="sous-module-potemodule-intermap-preprocess">
+<h1>Sous-module potemodule.intermap.preprocess<a class="headerlink" href="#sous-module-potemodule-intermap-preprocess" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="but-du-sous-module">
+<h2>But du sous-module<a class="headerlink" href="#but-du-sous-module" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce sous module permet le tri et la préparation des données
 nécessaire à la production de la carte interactive. Il est
 constitué de plusieurs fonctions décrites ci-après.</p>
-</section>
-<section id="module-potemodule.intermap.preprocess.get_data">
-<span id="fonctions-du-sous-module"></span><h2>Fonctions du sous-module<a class="headerlink" href="#module-potemodule.intermap.preprocess.get_data" title="Lien permanent vers ce titre"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="potemodule.intermap.preprocess.get_data.final_data">
-<span class="sig-name descname"><span class="pre">final_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_conso</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_geo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/potemodule/intermap/preprocess/get_data.html#final_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.intermap.preprocess.get_data.final_data" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Fusion du dataframe des contours des départements français trié et du dataframe de la consommation électrique trié.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>df_conso</strong> (<em>dataframe</em>) – données de consommation triées</p></li>
-<li><p><strong>df_geo</strong> (<em>dataframe</em>) – contours des départements français trié</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="potemodule.intermap.preprocess.get_data.get_conso">
-<span class="sig-name descname"><span class="pre">get_conso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_conso</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/potemodule/intermap/preprocess/get_data.html#get_conso"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.intermap.preprocess.get_data.get_conso" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Extraction des données de consommation moyenne annuelle par habitant d’une ville par département triées.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><p><strong>df_conso</strong> (<em>dataframe</em>) – jeu de données contenant les consommations électriques par foyers</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="potemodule.intermap.preprocess.get_data.get_geo">
-<span class="sig-name descname"><span class="pre">get_geo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_geo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/potemodule/intermap/preprocess/get_data.html#get_geo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.intermap.preprocess.get_data.get_geo" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Extraction des numéros, nom et contours des départements de France.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><p><strong>df_geo</strong> (<em>dataframe</em>) – contours des départements français au format json</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="potemodule.intermap.preprocess.get_data.tri">
-<span class="sig-name descname"><span class="pre">tri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_conso</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/potemodule/intermap/preprocess/get_data.html#tri"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.intermap.preprocess.get_data.tri" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Suppression des colonnes non nécessaire à la visualisation et ajout d’une colonne “Département” contenant le numéro de département de chaque adresse.
-Tri des données pour conserve la ville la plus peuplée par département.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><p><strong>df_conso</strong> (<em>dataframe</em>) – dataset contenant les consommation électrique par foyers</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-</section>
+</div>
+<div class="section" id="fonctions-du-sous-module">
+<h2>Fonctions du sous-module<a class="headerlink" href="#fonctions-du-sous-module" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+</div>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="potemodule.intermap.io.html" class="btn btn-neutral float-left" title="Sous-module potemodule.intermap.io" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="potemodule.intermap.vis.html" class="btn btn-neutral float-right" title="Sous-module potemodule.intermap.vis" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="potemodule.intermap.io.html" class="btn btn-neutral float-left" title="Sous-module potemodule.intermap.io" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="potemodule.intermap.vis.html" class="btn btn-neutral float-right" title="Sous-module potemodule.intermap.vis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -162,9 +118,9 @@ Tri des données pour conserve la ville la plus peuplée par département.</p>
     <p>&#169; Copyright 2022, Crespin Paul, Lamrini Oualid, Renoir Thamara, Sinibaldi Emma.</p>
   </div>
 
-  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
-    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

@@ -7,7 +7,7 @@ But du sous-module
 Ce sous module permet d'insérer dans la carte interactive des graphique illustrant l'évoluion de 
 la consommation électrique annuelle moyenne par foyer dans plusieurs villes françaises.
 
-Classe et fonction du sous-module 
+Fonction et classe du sous-module 
 ----------------------------------
 
 .. automodule:: potemodule.intermap.Graphique

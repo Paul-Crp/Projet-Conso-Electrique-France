@@ -42,11 +42,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Prédiction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../Prediction/potemodule.Prediction.html">potemodule.Prediction package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Prediction/potemodule.Prediction.html">Module potemodule.Prediction</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Visualisation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../Visualisation/potemodule.intermap.html">Sous-modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Visualisation/potemodule.intermap.html">Module potmodule.intermap</a></li>
 </ul>
 
         </div>
@@ -83,7 +83,7 @@
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.PredictionModel.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">():</span>
+<div class="viewcode-block" id="Forcast"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.PredictionModel.Forcast">[docs]</a><span class="k">class</span> <span class="nc">Forcast</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Cette classe crée la prediction à une date donnée ainsi que sa visualisation </span>
 
@@ -95,13 +95,23 @@
 <span class="sd">    </span>
 <span class="sd">    :type fin: Date dans le  format YYYY_MM_DD H:M:S</span>
 
+<span class="sd">    :param pred: La prediction retenu par la méthode *ucm*</span>
+
+<span class="sd">    :type pred: Dataframe</span>
+
+<span class="sd">    :param id: vaut 1 si la prediction porte sur la consommation\\</span>
+<span class="sd">                et vaut 2 si elle porte sur le Gaz .</span>
+<span class="sd">    :type id: Entier            </span>
+<span class="sd">                 </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">debut</span><span class="p">,</span><span class="n">fin</span><span class="p">,</span><span class="n">pred</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">debut</span><span class="p">,</span><span class="n">fin</span><span class="p">,</span><span class="n">pred</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">debut</span><span class="o">=</span><span class="n">debut</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fin</span><span class="o">=</span><span class="n">fin</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pred</span><span class="o">=</span><span class="n">pred</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">=</span><span class="nb">id</span>
 
-<div class="viewcode-block" id="Model.mod"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.PredictionModel.Model.mod">[docs]</a>    <span class="k">def</span> <span class="nf">mod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">):</span>
+<div class="viewcode-block" id="Forcast.ucm"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.PredictionModel.Forcast.ucm">[docs]</a>    <span class="k">def</span> <span class="nf">ucm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">df</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Le modele de prédiction sur une période donnnée </span>
 
@@ -111,8 +121,7 @@
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="c1">#df =data.Processdf(1).cleaningdf()#</span>
-        <span class="c1">#np.asarray(df.iloc[70176:,])</span>
+        
         <span class="n">UCM</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">UnobservedComponents</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
                                             <span class="n">level</span><span class="o">=</span><span class="s1">&#39;dtrend&#39;</span><span class="p">,</span>
                                             <span class="n">irregular</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -129,32 +138,27 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pred</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pred</span> <span class="o">-</span> <span class="mi">5000</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pred</span></div>
-<div class="viewcode-block" id="Model.ucmplot"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.PredictionModel.Model.ucmplot">[docs]</a>    <span class="k">def</span> <span class="nf">ucmplot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Forcast.ucmplot"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.PredictionModel.Forcast.ucmplot">[docs]</a>    <span class="k">def</span> <span class="nf">ucmplot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Visualisation de la consommation du jour à prédire</span>
 
 <span class="sd">        :param pred: La prédiction d&#39;une période donnée</span>
 
 <span class="sd">        :type pred: data frame  </span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;La consommation éléctrique  (MW) du 8 Décembre&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Consommation (MW) &#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Consommation (MW)&#39;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span></div></div>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;La prediction de la consommation éléctrique  (MW) du 8 Décembre&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Consommation (MW) &#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Consommation (MW)&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">==</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;La prediction du Gaz (MW) du 8 Décembre&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Gaz (MW) &#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Gaz (MW)&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>     </div></div>
        
-<span class="c1">#%%</span>
-<span class="c1">#start1=&quot;2022-12-08 00:00:00&quot;</span>
-<span class="c1">#end1=&quot;2022-12-08 23:45:00&quot;</span>
-<span class="c1">#df=data.Processdf(1).claeningdf()</span>
-<span class="c1">#obj=Model(debut=start1,fin=end1,df=df)</span>
-<span class="c1">#pred=obj.mod()</span>
-
-<span class="c1">#_______ploter la pred des resources ____</span>
-<span class="c1">#essayer d ajouter un id pour selectionner le plot qui co,nvient </span>
-<span class="c1">#manip de la data des resources </span>
-<span class="c1"># %%</span>
 </pre></div>
 
            </div>
