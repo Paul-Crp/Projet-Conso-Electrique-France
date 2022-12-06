@@ -18,15 +18,26 @@ if val == "1":
     print("Veuillez patienter...")
     start1 = "2022-12-08 00:00:00"
     end1 = "2022-12-08 23:45:00"
+    print("Predction de la consommation du 8 Décembre et sa visualisation")
     df = data.Processdf(1)  
     df = df.df_cleaned()
     df.set_index('Temps',inplace=True)
     df.index = pd.to_datetime(df.index)
-    obj = PredictionModel.Forcast(debut=start1,fin=end1,pred=pd.DataFrame())
+    obj = PredictionModel.Forcast(debut=start1,fin=end1,pred=pd.DataFrame(),1)
     pred = obj.ucm(df)
     obj.ucmplot()
-    pred.to_csv("Rendus/peediction.csv")
+    print("Predction du Gaz le 8 Décembre et sa visualisation")
+    df = data.Processdf(2)  
+    df = df.df_cleaned()
+    df.set_index('Temps',inplace=True)
+    df.index = pd.to_datetime(df.index)
+    obj = PredictionModel.Forcast(debut=start1,fin=end1,pred=pd.DataFrame(),2)
+    pred = obj.ucm(df)
+    obj.ucmplot()
+
+    pred.to_csv("Rendus/prediction.csv")
     plt.savefig("Rendus/Consommation.pdf")
+    
     os.makedirs('Rendus', exist_ok=True)
 
 elif val == "2":

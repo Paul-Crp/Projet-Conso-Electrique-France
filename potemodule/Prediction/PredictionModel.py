@@ -19,11 +19,21 @@ class Forcast():
     
     :type fin: Date dans le  format YYYY_MM_DD H:M:S
 
+    :param pred: La prediction retenu par la méthode *ucm*
+
+    :type pred:Dataframe
+
+    :param id:vaut 1 si la prediction porte sur la consommation\\
+                et vaut 2 si elle porte sur le Gaz .
+    :type id: Entier            
+                 
+
     """
-    def __init__(self,debut,fin,pred):
+    def __init__(self,debut,fin,pred,id):
         self.debut=debut
         self.fin=fin
         self.pred=pred
+        self.id=id
 
     def ucm(self,df):
         """ 
@@ -35,8 +45,7 @@ class Forcast():
         
         """
 
-        #df =data.Processdf(1).cleaningdf()#
-        #np.asarray(df.iloc[70176:,])
+        
         UCM = sm.tsa.UnobservedComponents(df,
                                             level='dtrend',
                                             irregular=True,
@@ -60,22 +69,17 @@ class Forcast():
         :param pred: La prédiction d'une période donnée
 
         :type pred: data frame  
-
         """
-        f, ax = plt.subplots(figsize=(18, 6), dpi=200)
-        plt.suptitle('La consommation éléctrique  (MW) du 8 Décembre', fontsize=20)
-        plt.ylabel('Consommation (MW) ')
-        self.pred.plot(ax=ax, rot=90, ylabel='Consommation (MW)')
-        plt.legend()
+        if (self.id==1):
+            f, ax = plt.subplots(figsize=(18, 6), dpi=200)
+            plt.suptitle('La prediction de la consommation éléctrique  (MW) du 8 Décembre', fontsize=20)
+            plt.ylabel('Consommation (MW) ')
+            self.pred.plot(ax=ax, rot=90, ylabel='Consommation (MW)')
+            plt.legend()
+        if (self.id==2):
+            f, ax = plt.subplots(figsize=(18, 6), dpi=200)
+            plt.suptitle('La prediction du Gaz (MW) du 8 Décembre', fontsize=20)
+            plt.ylabel('Gaz (MW) ')
+            self.pred.plot(ax=ax, rot=90, ylabel='Gaz (MW)')
+            plt.legend()     
        
-#%%
-#start1="2022-12-08 00:00:00"
-#end1="2022-12-08 23:45:00"
-#df=data.Processdf(1).claeningdf()
-#obj=Model(debut=start1,fin=end1,df=df)
-#pred=obj.mod()
-
-#_______ploter la pred des resources ____
-#essayer d ajouter un id pour selectionner le plot qui co,nvient 
-#manip de la data des resources 
-# %%

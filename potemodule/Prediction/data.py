@@ -137,27 +137,14 @@ class Processdf():
         """
         if ( self.id == 1):
             df = pd.read_csv("./Data/datafinall.csv") 
-            #df.set_index('Temps')
+            return df
+        if ( self.id == 2):
+            df = pd.read_csv("./Data/datagaz.csv") 
             return df
         
-        #if id==2:
-            #df=pd.read_csv("./Data/dattfinal_gaz.csv", sep=";") 
-        #if id==3:
-            #df=pd.read_csv("./Data/dattfinal_nucleaire.csv", sep=";")     
         
     
    
 
-
-# %%
-#df=Processdf(1).cleaningdf()
-
-
-#load()
-# %%
-#df.to_csv(".//Data//datafinall.csv",sep=";",index=False,mode='w')
-# %%
-#df=Processdf(1).cleaningdf()
-#ts=Processdf(1).df_cleaned()
 
 # %%
