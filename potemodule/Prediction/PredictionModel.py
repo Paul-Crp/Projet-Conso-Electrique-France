@@ -20,12 +20,12 @@ class Model():
     :type fin: Date dans le  format YYYY_MM_DD H:M:S
 
     """
-    def __init__(self,debut,fin,df,pred=pd.DataFrame()):
+    def __init__(self,debut,fin,pred):
         self.debut=debut
         self.fin=fin
-        self.df=df
         self.pred=pred
-    def mod(self):
+
+    def mod(self,df):
         """ 
         Le modele de prédiction sur une période donnnée 
 
