@@ -20,13 +20,13 @@ def load():
     url2 = "https://bit.ly/3V81yIg"
     url3 = "https://bit.ly/3UO3NRc"
     url41 = "https://bit.ly/3gowmWv"
-    url42 = "https://bit.ly/3Ep9TjU"
+    url42 = "https://bit.ly/3VDELEN" #https://bit.ly/3Ep9TjU"
     urls = [url1, url2, url3, url41, url42]  
-    path_target1 =".//Data//data1.csv"
-    path_target2 =".//Data//data2.csv" 
-    path_target3 =".//Data//data3.csv" 
-    path_target41 =".//Data//data41.csv"
-    path_target42 =".//Data//data42.csv"
+    path_target1 =".//Data//adata1.csv"
+    path_target2 =".//Data//adata2.csv" 
+    path_target3 =".//Data//adata3.csv" 
+    path_target41 =".//Data//adata41.csv"
+    path_target42 =".//Data//adata43.csv"
     paths=[path_target1,path_target2,path_target3,path_target41,path_target42]
     for i in range(5):
         path ,fname = os.path.split(paths[i])
@@ -53,7 +53,7 @@ class Processdf():
         
         :rtype: Data frame 
         """
-        data1 = pd.read_csv("./Data/data1.csv", sep=";")
+        data1 = pd.read_csv("./Data/adata1.csv", sep=";")
         data1 = data1[['Date', 'Heure', 'Consommation (MW)']]
         time_improved = pd.to_datetime(data1['Date'] +
                                        ' ' + data1['Heure'],
@@ -69,7 +69,7 @@ class Processdf():
         data1['Consommation (MW)'][len(
             data1)-1] = data1['Consommation (MW)'][-3:-2].mean()
         # -----------------------------------------------------------------------------------------
-        data2 = pd.read_csv("./Data/data2.csv", sep=";")
+        data2 = pd.read_csv("./Data/adata2.csv", sep=";")
         data2 = data2[['Date', 'Heure', 'Consommation (MW)']]
         data2['Temps'] = pd.to_datetime(data2['Date'] +
                                         ' ' + data2['Heure'],
@@ -84,7 +84,7 @@ class Processdf():
         data2['Consommation (MW)'][len(
             data1)-1] = data1['Consommation (MW)'][-3:-2].mean()
         # -----------------------------------------------------------------------------------------
-        data3 = pd.read_csv("./Data/data3.csv", sep=";")
+        data3 = pd.read_csv("./Data/adata3.csv", sep=";")
         data3 = data3[['Date', 'Heure', 'Consommation (MW)']]
         data3['Temps'] = pd.to_datetime(data3['Date'] +
                                         ' ' + data3['Heure'],
@@ -99,7 +99,7 @@ class Processdf():
         data3['Consommation (MW)'][len(
             data1)-1] = data1['Consommation (MW)'][-3:-2].mean()
         # -----------------------------------------------------------------------------------------
-        data41 = pd.read_csv("./Data/data41.csv", sep=";")
+        data41 = pd.read_csv("./Data/adata41.csv", sep=";")
         data41 = data41[['Date', 'Heure', 'Consommation (MW)']]
         data41['Temps'] = pd.to_datetime(data41['Date'] +
                                          ' ' + data41['Heure'],
@@ -114,7 +114,7 @@ class Processdf():
         data3['Consommation (MW)'][len(
             data1)-1] = data1['Consommation (MW)'][-3:-2].mean()
         # -----------------------------------------------------------------------------------------
-        data42 = pd.read_csv("./Data/data42.csv", sep=";")
+        data42 = pd.read_csv("./Data/adata42.csv", sep=";")
         #Data2022 = Data2022.set_index('Date et Heure')
         data42 = data42[['Date', 'Heure', 'Consommation (MW)']]
         data42['Temps'] = pd.to_datetime(data42['Date'] +
@@ -127,6 +127,7 @@ class Processdf():
         data42 = data42.dropna()
         df = pd.concat([data1, data2, data3,
                         data41, data42], axis=0) 
+        df.to_csv("./Data/datafinall.csv")
         return df
 
     def df_cleaned(self):

@@ -1,6 +1,10 @@
 import potemodule.intermap as IM
+import data,PredictionModel
+import pandas as pd
+import matplotlib.pyplot as plt
 import os
 
+os.makedirs('Rendus', exist_ok=True)
 print("Merci d'avoir choisi notre module!")
 print("Si vous souhaitez la prédiction de consommation, veuillez entrer 1")
 print("Si vous souhaitez la carte de consommation, veuillez entrer 2")
@@ -12,7 +16,18 @@ val = input("Veuillez entrez votre choix: ")
 if val == "1":
     print("Vous avez choisi la prédiction de consommation")
     print("Veuillez patienter...")
-    # RAJOUTEZ LA FONCTION DE PRÉDICTION ICI
+    start1 = "2022-12-08 00:00:00"
+    end1 = "2022-12-08 23:45:00"
+    df = data.Processdf(1)  
+    df = df.df_cleaned()
+    df.set_index('Temps',inplace=True)
+    df.index = pd.to_datetime(df.index)
+    obj = PredictionModel.Forcast(debut=start1,fin=end1,pred=pd.DataFrame())
+    pred = obj.ucm(df)
+    obj.ucmplot()
+    f.to_pdf("Rendus/Consommation.pdf")
+    plt.savefig("Rendus/Consommation.pdf")
+    os.makedirs('Rendus', exist_ok=True)
 
 elif val == "2":
     print("Vous avez choisi la carte de consommation")
@@ -47,3 +62,11 @@ elif val == "4":
 else:
     print("Veuillez entrer un choix valide la prochaine fois ^^")
     exit()
+
+
+
+
+
+
+
+# %%

@@ -7,7 +7,7 @@ import statsmodels.api as sm
 import seaborn as sns
 sns.set()
 
-class Model():
+class Forcast():
     """ 
     Cette classe crée la prediction à une date donnée ainsi que sa visualisation 
 
@@ -25,7 +25,7 @@ class Model():
         self.fin=fin
         self.pred=pred
 
-    def mod(self,df):
+    def ucm(self,df):
         """ 
         Le modele de prédiction sur une période donnnée 
 
