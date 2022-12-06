@@ -1,10 +1,11 @@
 import potemodule.intermap as IM
-import data,PredictionModel
+from potemodule.Prediction import  data,PredictionModel 
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
 os.makedirs('Rendus', exist_ok=True)
+
 print("Merci d'avoir choisi notre module!")
 print("Si vous souhaitez la prédiction de consommation, veuillez entrer 1")
 print("Si vous souhaitez la carte de consommation, veuillez entrer 2")
@@ -26,6 +27,8 @@ if val == "1":
     obj = PredictionModel.Forcast(debut=start1,fin=end1,pred=pd.DataFrame(),1)
     pred = obj.ucm(df)
     obj.ucmplot()
+    plt.savefig("Rendus/Consommation.pdf")
+    pred.to_csv("Rendus/prediction.csv")
     print("Predction du Gaz le 8 Décembre et sa visualisation")
     df = data.Processdf(2)  
     df = df.df_cleaned()
@@ -34,12 +37,11 @@ if val == "1":
     obj = PredictionModel.Forcast(debut=start1,fin=end1,pred=pd.DataFrame(),2)
     pred = obj.ucm(df)
     obj.ucmplot()
-
-    pred.to_csv("Rendus/prediction.csv")
-    plt.savefig("Rendus/Consommation.pdf")
+    plt.savefig("Rendus/Gaz.pdf")
+    print("La prediction ainsi que sa visualisation sont dans le dossier Rendus .")
+    
     
     os.makedirs('Rendus', exist_ok=True)
-
 elif val == "2":
     print("Vous avez choisi la carte de consommation")
     print("Veuillez patienter...")
