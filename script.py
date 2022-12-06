@@ -25,7 +25,7 @@ if val == "1":
     obj = PredictionModel.Forcast(debut=start1,fin=end1,pred=pd.DataFrame())
     pred = obj.ucm(df)
     obj.ucmplot()
-    f.to_pdf("Rendus/Consommation.pdf")
+    pred.to_csv("Rendus/peediction.csv")
     plt.savefig("Rendus/Consommation.pdf")
     os.makedirs('Rendus', exist_ok=True)
 
