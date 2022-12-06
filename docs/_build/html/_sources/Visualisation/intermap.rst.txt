@@ -1,0 +1,39 @@
+intermap package
+================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   intermap.io
+   intermap.preprocess
+   intermap.vis
+
+Submodules
+----------
+
+intermap.Filtration module
+--------------------------
+
+.. automodule:: intermap.Filtration
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+intermap.Graphique module
+-------------------------
+
+.. automodule:: intermap.Graphique
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: intermap
+   :members:
+   :undoc-members:
+   :show-inheritance:
