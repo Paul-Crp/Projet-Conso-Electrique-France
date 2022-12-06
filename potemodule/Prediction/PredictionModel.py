@@ -67,7 +67,7 @@ class Model():
         plt.ylabel('Consommation (MW) ')
         self.pred.plot(ax=ax, rot=90, ylabel='Consommation (MW)')
         plt.legend()
-        return
+       
 #%%
 #start1="2022-12-08 00:00:00"
 #end1="2022-12-08 23:45:00"
