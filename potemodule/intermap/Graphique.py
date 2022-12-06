@@ -15,7 +15,7 @@ class graphique:
     def plotage(self,d):
         valeurs = []
 
-        for v in d.items():
+        for p,v in d.items():
             valeurs = valeurs + [v]
 
         fig=figure()
