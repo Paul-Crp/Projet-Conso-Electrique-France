@@ -20,10 +20,11 @@ class Model():
     :type fin: Date dans le  format YYYY_MM_DD H:M:S
 
     """
-    def __init__(self,debut,fin,df):
+    def __init__(self,debut,fin,df,pred=pd.DataFrame()):
         self.debut=debut
         self.fin=fin
         self.df=df
+        self.pred=pred
     def mod(self):
         """ 
         Le modele de prédiction sur une période donnnée 
@@ -48,11 +49,11 @@ class Model():
                                                                'harmonics': 2},
                                                            {'period': 35066, 'harmonics': 1}])
         m=UCM.fit()
-        pred=m.predict(start=self.debut,end=self.fin)
-        pred = pred.to_frame()
-        pred = pred - 5000
-        return pred
-    def ucmplot(predd):
+        self.pred=m.predict(start=self.debut,end=self.fin)
+        self.pred = self.pred.to_frame()
+        self.pred = self.pred - 5000
+        return self.pred
+    def ucmplot(self):
         """ 
         Visualisation de la consommation du jour à prédire
 
@@ -64,7 +65,7 @@ class Model():
         f, ax = plt.subplots(figsize=(18, 6), dpi=200)
         plt.suptitle('La consommation éléctrique  (MW) du 8 Décembre', fontsize=20)
         plt.ylabel('Consommation (MW) ')
-        predd.plot(ax=ax, rot=90, ylabel='Consommation (MW)')
+        self.pred.plot(ax=ax, rot=90, ylabel='Consommation (MW)')
         plt.legend()
         return
 #%%
