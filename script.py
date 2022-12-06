@@ -7,10 +7,9 @@ import os
 os.makedirs('Rendus', exist_ok=True)
 
 print("Merci d'avoir choisi notre module!")
-print("Si vous souhaitez la prédiction de consommation, veuillez entrer 1")
-print("Si vous souhaitez la carte de consommation, veuillez entrer 2")
-print("Si vous souhaitez les deux, veuillez entrer 3")
-print("Si vous voulez quittez, veuillez entrer 4.")
+print("Si vous souhaitez la prédiction de consommation, veuillez entrer 1.")
+print("Si vous souhaitez la carte de consommation, veuillez entrer 2.")
+print("Si vous voulez quittez, veuillez entrer 3.")
 
 val = input("Veuillez entrez votre choix: ")
 
@@ -63,11 +62,6 @@ elif val == "2":
     print("Merci pour votre confiance, à bientôt!")
 
 elif val == "3":
-    print("Vous avez choisi les deux")
-    print("Veuillez patienter...")
-    # RAJOUTEZ LES DEUX FONCTIONS ICI
-
-elif val == "4":
     print("Merci d'avoir utilisé notre module!")
     exit()
 
