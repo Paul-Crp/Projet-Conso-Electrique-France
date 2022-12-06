@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="fr" >
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>potemodule.Prediction.ucmodele &mdash; Module POTE 1.0.0 documentation</title><link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <title>potemodule.Prediction.ucmodele &mdash; Documentation potemodule 1.0.0</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/translations.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Recherche" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -23,25 +25,29 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> Module POTE
+            <a href="../../../index.html" class="icon icon-home"> potemodule
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">install,contacts:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Installation, contacts et sources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">Comment installer le package potemodule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/contacts.html">Contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/sources.html">Sources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Prediction,intermap</span></p>
+<p class="caption" role="heading"><span class="caption-text">Prédiction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../potemodule.Prediction.html">potemodule.Prediction package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../potemodule.intermap.html">potemodule.intermap package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Prediction/potemodule.Prediction.html">Module potemodule.Prediction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Visualisation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Visualisation/potemodule.intermap.html">Sous-modules</a></li>
 </ul>
 
         </div>
@@ -50,7 +56,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Module POTE</a>
+          <a href="../../../index.html">potemodule</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -58,7 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Code du module</a></li>
       <li class="breadcrumb-item active">potemodule.Prediction.ucmodele</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -68,7 +74,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for potemodule.Prediction.ucmodele</h1><div class="highlight"><pre>
+  <h1>Code source de potemodule.Prediction.ucmodele</h1><div class="highlight"><pre>
 <span></span><span class="c1">#%%</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
@@ -82,13 +88,13 @@
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="c1"># creer une classe </span>
-<div class="viewcode-block" id="modelle"><a class="viewcode-back" href="../../../potemodule.Prediction.html#potemodule.Prediction.ucmodele.modelle">[docs]</a><span class="k">def</span> <span class="nf">modelle</span><span class="p">():</span>
+<div class="viewcode-block" id="modelle"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.ucmodele.modelle">[docs]</a><span class="k">def</span> <span class="nf">modelle</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;&quot; prediction modele&quot;&quot;&quot;</span>
     <span class="c1"># machine learning and statistical methods</span>
     <span class="c1"># muting unnecessary warnings if needed</span>
     <span class="c1"># %%____________________________________________-</span>
     <span class="c1">#</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;.data/datafinal.csv&quot;</span><span class="p">)</span>  <span class="c1"># data from 2019-01-01 00:00:00 to 2022-11-14 23:45:00</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Data/datafinal.csv&quot;</span><span class="p">)</span>  <span class="c1"># data from 2019-01-01 00:00:00 to 2022-11-14 23:45:00</span>
 
     <span class="c1"># splitting time series to train and test subsets</span>
     <span class="c1">#y_test = df.iloc[-35880:-8064,:].copy()</span>
@@ -150,6 +156,8 @@
 
 
 
+
+<span class="c1"># %%</span>
 </pre></div>
 
            </div>
@@ -162,9 +170,9 @@
     <p>&#169; Copyright 2022, Crespin Paul, Lamrini Oualid, Renoir Thamara, Sinibaldi Emma.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

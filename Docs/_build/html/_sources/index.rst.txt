@@ -3,34 +3,43 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-La consommation d'éléctricité en France 
-========================================
-:: 
-   Ce package est réalisé dans le cadre de notre projet du  Developpement Logiciel.
-   Le but principale est de prédire la consommation de l'éléctricité en france 
-   et celle des recoureces :Fioul,Charbon,Gaz,Nucléaire,Eolien er Solaire .
-   Ainsi que de la visualisation d'un carte interactive . 
+Bienvenu dans la documentation de potemodule 
+=====================================================
+
+   Ce module a été réalisé dans le cadre d'un projet de Developpement Logiciel.
+   Le but principale est de prédire la consommation électrique en France pendant
+   la journée du 8 décembre 2022 et celle du fioul, du charbon, du gaz, du
+   nucléaire et des énergies éolienne et solaire.
+   Il a également pour but de produire une carte interactive montrant la
+   consommation électrique annuelle moyenne par foyer et par ville de 2018 à 2021.
 
 
 Guide d'installation 
 =====================
 .. toctree::
    :maxdepth: 4
-   :caption: install,contacts:
+   :caption: Installation, contacts et sources
 
    installation/install
    installation/contacts
+   installation/sources
 
-Arborescence du package 
-========================
+Structure du module 
+=======================
+
+Ce module est en deux parties, la prédiction et la visualisation.
+
 .. toctree::
    :maxdepth: 2
-   :caption: Prediction,intermap 
+   :caption: Prédiction
 
-   potemodule.Prediction 
-   
-   potemodule.intermap
+   Prediction/potemodule.Prediction 
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Visualisation
+
+   Visualisation/potemodule.intermap
 
 
 Indices and tables

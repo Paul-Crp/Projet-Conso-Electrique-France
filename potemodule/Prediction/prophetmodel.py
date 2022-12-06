@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from prophet import Prophet
 #from Prediction import data
-import pandas as dp 
+import pandas as pd 
 
 #clss Conso:
 # preprocessing  data
@@ -14,7 +14,7 @@ class modele:
         pass
     
     def modeele():
-        df = pd.red_csv(".data/datafinal.csv")
+        df = pd.red_csv("./Data/datafinal.csv")
         dff = df.reset_index()
         dff.rename(columns={'Consommation (MW)': 'y', '': 'ds'}, inplace=True)
         plt.plot(dff['y'], label='Consommation (MW)')

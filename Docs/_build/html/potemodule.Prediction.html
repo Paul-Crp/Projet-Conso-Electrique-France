@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>potemodule.Prediction package &mdash; Module POTE 1.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>Module potemodule.Prediction &mdash; Documentation potemodule 1.0.0</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="potemodule.intermap package" href="potemodule.intermap.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Sous-modules" href="potemodule.intermap.html" />
     <link rel="prev" title="Contacts" href="installation/contacts.html" /> 
 </head>
 
@@ -25,34 +28,44 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Module POTE
+            <a href="index.html" class="icon icon-home"> potemodule
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">install,contacts:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Installation et contacts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation/install.html">Comment installer le package potemodule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation/contacts.html">Contacts</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Prediction,intermap</span></p>
+<p class="caption" role="heading"><span class="caption-text">Prediction</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">potemodule.Prediction package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-potemodule.Prediction.PredictionModel">PredictionModel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-potemodule.Prediction.data">data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-potemodule.Prediction.datatest">datatest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-potemodule.Prediction.prophetmodel">prophetmodel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-potemodule.Prediction.ucmodele">potemodule.Prediction.ucmodele module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-potemodule.Prediction">Module contents</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module potemodule.Prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#but-du-module">But du module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classe-du-sous-module-potemodule-prediction-data">Classe du sous-module potemodule.Prediction.data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-potemodule.Prediction.data">Méthodes de la classe <em>managedata</em></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="potemodule.intermap.html">potemodule.intermap package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classe-du-sous-module-potemodule-prediction-datatest">Classe du sous-module potemodule.Prediction.datatest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-potemodule.Prediction.datatest">Méthodes de la calsse <em>On_test</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#classe-du-sous-module-potemodule-prediction-prophetmodel">Classe du sous-module potemodule.Prediction.prophetmodel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-potemodule.Prediction.prophetmodel">Méthodes de la calsse <em>modele</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-potemodule.Prediction.ucmodele">Fonction du sous-module potemodule.Prediction.ucmodele</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Visualisation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="potemodule.intermap.html">Sous-modules</a></li>
 </ul>
 
         </div>
@@ -61,7 +74,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Module POTE</a>
+          <a href="index.html">potemodule</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -69,9 +82,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">potemodule.Prediction package</li>
+      <li class="breadcrumb-item active">Module potemodule.Prediction</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/potemodule.Prediction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/potemodule.Prediction.rst.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
   </ul>
   <hr/>
@@ -79,165 +92,111 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="potemodule-prediction-package">
-<h1>potemodule.Prediction package<a class="headerlink" href="#potemodule-prediction-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-potemodule.Prediction.PredictionModel">
-<span id="predictionmodel"></span><h2>PredictionModel<a class="headerlink" href="#module-potemodule.Prediction.PredictionModel" title="Permalink to this headline">¶</a></h2>
+  <section id="module-potemodule-prediction">
+<h1>Module potemodule.Prediction<a class="headerlink" href="#module-potemodule-prediction" title="Lien permanent vers ce titre"></a></h1>
+<section id="but-du-module">
+<h2>But du module<a class="headerlink" href="#but-du-module" title="Lien permanent vers ce titre"></a></h2>
+<blockquote>
+<div><p>Ce module à pour but de prédire la consommation électrique
+totale et par source d’énergie en France pendant la journée du
+8 décembre 2022.</p>
+<p>Des graphiques et un fichier au format csv seront produits et
+stockés dans le dossier <em>Rendus</em> créer au moment de l’exécutio
+du module.</p>
+</div></blockquote>
+</section>
+<section id="classe-du-sous-module-potemodule-prediction-data">
+<h2>Classe du sous-module potemodule.Prediction.data<a class="headerlink" href="#classe-du-sous-module-potemodule-prediction-data" title="Lien permanent vers ce titre"></a></h2>
+<section id="module-potemodule.Prediction.data">
+<span id="methodes-de-la-classe-managedata"></span><h3>Méthodes de la classe <em>managedata</em><a class="headerlink" href="#module-potemodule.Prediction.data" title="Lien permanent vers ce titre"></a></h3>
 <dl class="py class">
-<dt id="potemodule.Prediction.PredictionModel.Model">
-<em class="property">class </em><code class="sig-prename descclassname">potemodule.Prediction.PredictionModel.</code><code class="sig-name descname">Model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">debut</span></em>, <em class="sig-param"><span class="n">fin</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/PredictionModel.html#Model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.PredictionModel.Model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Cette classe crée la prediction à une date donnée ainsi que sa visualisation</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>debut</strong> (<em>Date dans le  format YYYY_MM_DD H:M:S</em>) – la date du debut de la prédiction</p></li>
-<li><p><strong>fin</strong> (<em>Date dans le  format YYYY_MM_DD H:M:S</em>) – la date de la fin de la prédiction</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="potemodule.Prediction.PredictionModel.Model.df_cleaned">
-<code class="sig-name descname">df_cleaned</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/PredictionModel.html#Model.df_cleaned"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.PredictionModel.Model.df_cleaned" title="Permalink to this definition">¶</a></dt>
-<dd><p>Récupere la dataframe préte à l’emploit directementt du package en assurant</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="potemodule.Prediction.PredictionModel.Model.mod">
-<code class="sig-name descname">mod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/PredictionModel.html#Model.mod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.PredictionModel.Model.mod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Le modele de prédiction sur une période donnnée</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>la dataframe de la prédiction ,dates de la période donnée et les valeurs correspondantes</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Data frame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="potemodule.Prediction.PredictionModel.Model.ucmplot">
-<code class="sig-name descname">ucmplot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/PredictionModel.html#Model.ucmplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.PredictionModel.Model.ucmplot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualisation de la consommation du jour à prédire</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>pred</strong> (<em>data frame</em>) – La prédiction d’une période donnée</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-potemodule.Prediction.data">
-<span id="data"></span><h2>data<a class="headerlink" href="#module-potemodule.Prediction.data" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="potemodule.Prediction.data.Load">
-<em class="property">class </em><code class="sig-prename descclassname">potemodule.Prediction.data.</code><code class="sig-name descname">Load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">urls</span></em>, <em class="sig-param"><span class="n">paths</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/data.html#Load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.data.Load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt class="sig sig-object py" id="potemodule.Prediction.data.managedata">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">managedata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['https://bit.ly/3i1OFkU',</span> <span class="pre">'https://bit.ly/3V81yIg',</span> <span class="pre">'https://bit.ly/3UO3NRc',</span> <span class="pre">'https://bit.ly/3gowmWv',</span> <span class="pre">'https://bit.ly/3Ep9TjU']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['./Data/data1.csv',</span> <span class="pre">'./Data/data2.csv',</span> <span class="pre">'./Data/data3.csv',</span> <span class="pre">'./Data/data41.csv',</span> <span class="pre">'./Data/data42.csv']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/data.html#managedata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.Prediction.data.managedata" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Cette classe permet le téléchargement des données de consommation électrique de 2019 à  2022.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>urls</strong> (<em>string</em>) – adresses urls du jeu de données</p></li>
 <li><p><strong>target_name</strong> (<em>string</em>) – chemins locaux où le jeu de données est enregistrer</p></li>
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py class">
-<dt id="potemodule.Prediction.data.Processdf">
-<em class="property">class </em><code class="sig-prename descclassname">potemodule.Prediction.data.</code><code class="sig-name descname">Processdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/data.html#Processdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.data.Processdf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Processing data</p>
 <dl class="py method">
-<dt id="potemodule.Prediction.data.Processdf.cleaningdf">
-<code class="sig-name descname">cleaningdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/data.html#Processdf.cleaningdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.data.Processdf.cleaningdf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Manipulation du jeu de données de 01/01/2019 jusqu’à 06/12/2022.
-Manipulations:</p>
-<blockquote>
-<div><p>-Recupérer les colonnes <strong>Date</strong>,**Heure** et <strong>Consommation (MW)</strong>
--Supprimer les valeurs manquantes
--Basculer la frequence des observations de <strong>60 min</strong> à <strong>15 min</strong></p>
-</div></blockquote>
+<dt class="sig sig-object py" id="potemodule.Prediction.data.managedata.dataframe">
+<span class="sig-name descname"><span class="pre">dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/data.html#managedata.dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.Prediction.data.managedata.dataframe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Manipulation du jeu de données de 01/01/2019 jusqu’à 06/12/2022.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Renvoie</dt>
 <dd class="field-odd"><p>le jeu de données pour chaque 15 min 01/01/2019 jusqu’à 06/12/2022</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Type renvoyé</dt>
 <dd class="field-even"><p>Data frame</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="potemodule.Prediction.data.Processdf.df_cleaned">
-<code class="sig-name descname">df_cleaned</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/data.html#Processdf.df_cleaned"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.data.Processdf.df_cleaned" title="Permalink to this definition">¶</a></dt>
-<dd><p>Récupere la dataframe préte à l’emploit directementt du package en assurant</p>
 </dd></dl>
 
-</dd></dl>
-
-</div>
-<div class="section" id="module-potemodule.Prediction.datatest">
-<span id="datatest"></span><h2>datatest<a class="headerlink" href="#module-potemodule.Prediction.datatest" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="classe-du-sous-module-potemodule-prediction-datatest">
+<h2>Classe du sous-module potemodule.Prediction.datatest<a class="headerlink" href="#classe-du-sous-module-potemodule-prediction-datatest" title="Lien permanent vers ce titre"></a></h2>
+<section id="module-potemodule.Prediction.datatest">
+<span id="methodes-de-la-calsse-on-test"></span><h3>Méthodes de la calsse <em>On_test</em><a class="headerlink" href="#module-potemodule.Prediction.datatest" title="Lien permanent vers ce titre"></a></h3>
 <dl class="py class">
-<dt id="potemodule.Prediction.datatest.On_test">
-<em class="property">class </em><code class="sig-prename descclassname">potemodule.Prediction.datatest.</code><code class="sig-name descname">On_test</code><a class="reference internal" href="_modules/potemodule/Prediction/datatest.html#On_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.datatest.On_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>” this is a class of data preprocessing</p>
+<dt class="sig sig-object py" id="potemodule.Prediction.datatest.On_test">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">On_test</span></span><a class="reference internal" href="_modules/potemodule/Prediction/datatest.html#On_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.Prediction.datatest.On_test" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p> » this is a class of data preprocessing</p>
 <dl class="py method">
-<dt id="potemodule.Prediction.datatest.On_test.dataframe">
-<code class="sig-name descname">dataframe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/datatest.html#On_test.dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.datatest.On_test.dataframe" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="potemodule.Prediction.datatest.On_test.dataframe">
+<span class="sig-name descname"><span class="pre">dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/datatest.html#On_test.dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.Prediction.datatest.On_test.dataframe" title="Lien permanent vers cette définition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="potemodule.Prediction.datatest.On_test.dataframe1">
-<code class="sig-name descname">dataframe1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/datatest.html#On_test.dataframe1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.datatest.On_test.dataframe1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="potemodule.Prediction.datatest.On_test.dataframe1">
+<span class="sig-name descname"><span class="pre">dataframe1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/datatest.html#On_test.dataframe1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.Prediction.datatest.On_test.dataframe1" title="Lien permanent vers cette définition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-potemodule.Prediction.prophetmodel">
-<span id="prophetmodel"></span><h2>prophetmodel<a class="headerlink" href="#module-potemodule.Prediction.prophetmodel" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="classe-du-sous-module-potemodule-prediction-prophetmodel">
+<h2>Classe du sous-module potemodule.Prediction.prophetmodel<a class="headerlink" href="#classe-du-sous-module-potemodule-prediction-prophetmodel" title="Lien permanent vers ce titre"></a></h2>
+<section id="module-potemodule.Prediction.prophetmodel">
+<span id="methodes-de-la-calsse-modele"></span><h3>Méthodes de la calsse <em>modele</em><a class="headerlink" href="#module-potemodule.Prediction.prophetmodel" title="Lien permanent vers ce titre"></a></h3>
 <dl class="py class">
-<dt id="potemodule.Prediction.prophetmodel.modele">
-<em class="property">class </em><code class="sig-prename descclassname">potemodule.Prediction.prophetmodel.</code><code class="sig-name descname">modele</code><a class="reference internal" href="_modules/potemodule/Prediction/prophetmodel.html#modele"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.prophetmodel.modele" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt class="sig sig-object py" id="potemodule.Prediction.prophetmodel.modele">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modele</span></span><a class="reference internal" href="_modules/potemodule/Prediction/prophetmodel.html#modele"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.Prediction.prophetmodel.modele" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt id="potemodule.Prediction.prophetmodel.modele.modeele">
-<code class="sig-name descname">modeele</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/prophetmodel.html#modele.modeele"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.prophetmodel.modele.modeele" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="potemodule.Prediction.prophetmodel.modele.modeele">
+<span class="sig-name descname"><span class="pre">modeele</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/prophetmodel.html#modele.modeele"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.Prediction.prophetmodel.modele.modeele" title="Lien permanent vers cette définition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-potemodule.Prediction.ucmodele">
-<span id="potemodule-prediction-ucmodele-module"></span><h2>potemodule.Prediction.ucmodele module<a class="headerlink" href="#module-potemodule.Prediction.ucmodele" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="module-potemodule.Prediction.ucmodele">
+<span id="fonction-du-sous-module-potemodule-prediction-ucmodele"></span><h2>Fonction du sous-module potemodule.Prediction.ucmodele<a class="headerlink" href="#module-potemodule.Prediction.ucmodele" title="Lien permanent vers ce titre"></a></h2>
 <dl class="py function">
-<dt id="potemodule.Prediction.ucmodele.modelle">
-<code class="sig-prename descclassname">potemodule.Prediction.ucmodele.</code><code class="sig-name descname">modelle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/ucmodele.html#modelle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#potemodule.Prediction.ucmodele.modelle" title="Permalink to this definition">¶</a></dt>
-<dd><p>” prediction modele</p>
+<dt class="sig sig-object py" id="potemodule.Prediction.ucmodele.modelle">
+<span class="sig-name descname"><span class="pre">modelle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/potemodule/Prediction/ucmodele.html#modelle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#potemodule.Prediction.ucmodele.modelle" title="Lien permanent vers cette définition"></a></dt>
+<dd><p> » prediction modele</p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-potemodule.Prediction">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-potemodule.Prediction" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation/contacts.html" class="btn btn-neutral float-left" title="Contacts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="potemodule.intermap.html" class="btn btn-neutral float-right" title="potemodule.intermap package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="installation/contacts.html" class="btn btn-neutral float-left" title="Contacts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="potemodule.intermap.html" class="btn btn-neutral float-right" title="Sous-modules" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -246,9 +205,9 @@ Manipulations:</p>
     <p>&#169; Copyright 2022, Crespin Paul, Lamrini Oualid, Renoir Thamara, Sinibaldi Emma.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

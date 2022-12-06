@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="fr" >
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>potemodule.Prediction.data &mdash; Module POTE 1.0.0 documentation</title><link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <title>potemodule.Prediction.data &mdash; Documentation potemodule 1.0.0</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/translations.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Recherche" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -23,25 +25,29 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> Module POTE
+            <a href="../../../index.html" class="icon icon-home"> potemodule
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">install,contacts:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Installation, contacts et sources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">Comment installer le package potemodule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/contacts.html">Contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/sources.html">Sources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Prediction,intermap</span></p>
+<p class="caption" role="heading"><span class="caption-text">Prédiction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../potemodule.Prediction.html">potemodule.Prediction package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../potemodule.intermap.html">potemodule.intermap package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Prediction/potemodule.Prediction.html">Module potemodule.Prediction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Visualisation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Visualisation/potemodule.intermap.html">Sous-modules</a></li>
 </ul>
 
         </div>
@@ -50,7 +56,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Module POTE</a>
+          <a href="../../../index.html">potemodule</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -58,7 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Code du module</a></li>
       <li class="breadcrumb-item active">potemodule.Prediction.data</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -68,17 +74,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for potemodule.Prediction.data</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+  <h1>Code source de potemodule.Prediction.data</h1><div class="highlight"><pre>
+<span></span><span class="c1">#%%</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pooch</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">RuntimeWarning</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">potemodule.Prediction</span> <span class="kn">import</span> <span class="n">urls</span><span class="p">,</span><span class="n">paths</span>
-
-<div class="viewcode-block" id="Load"><a class="viewcode-back" href="../../../potemodule.Prediction.html#potemodule.Prediction.data.Load">[docs]</a><span class="k">class</span> <span class="nc">Load</span><span class="p">():</span>
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.data.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Cette classe permet le téléchargement des données de consommation électrique de 2019 à  2022.</span>
+<span class="sd">        Cette fonction permet le téléchargement des données de consommation électrique de 2019 à  2022.</span>
 
 <span class="sd">        :param urls: adresses urls du jeu de données</span>
 
@@ -88,30 +93,39 @@
 
 <span class="sd">        :type target_name: string</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">urls</span><span class="p">,</span><span class="n">paths</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Fonction d&#39;initialisation </span>
-<span class="sd">        Elle permet le téléchargement des données au bon emplacement &quot;./Data&quot;</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-            <span class="n">path</span> <span class="p">,</span><span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="kc">None</span><span class="p">,)</span></div>
-    
-<div class="viewcode-block" id="Processdf"><a class="viewcode-back" href="../../../potemodule.Prediction.html#potemodule.Prediction.data.Processdf">[docs]</a><span class="k">class</span> <span class="nc">Processdf</span><span class="p">():</span>
+    <span class="n">url1</span> <span class="o">=</span> <span class="s2">&quot;https://bit.ly/3i1OFkU&quot;</span>
+    <span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://bit.ly/3V81yIg&quot;</span>
+    <span class="n">url3</span> <span class="o">=</span> <span class="s2">&quot;https://bit.ly/3UO3NRc&quot;</span>
+    <span class="n">url41</span> <span class="o">=</span> <span class="s2">&quot;https://bit.ly/3gowmWv&quot;</span>
+    <span class="n">url42</span> <span class="o">=</span> <span class="s2">&quot;https://bit.ly/3Ep9TjU&quot;</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="n">url1</span><span class="p">,</span> <span class="n">url2</span><span class="p">,</span> <span class="n">url3</span><span class="p">,</span> <span class="n">url41</span><span class="p">,</span> <span class="n">url42</span><span class="p">]</span>  
+    <span class="n">path_target1</span> <span class="o">=</span><span class="s2">&quot;./Data/data1.csv&quot;</span>
+    <span class="n">path_target2</span> <span class="o">=</span><span class="s2">&quot;./Data/data2.csv&quot;</span> 
+    <span class="n">path_target3</span> <span class="o">=</span><span class="s2">&quot;./Data/data3.csv&quot;</span> 
+    <span class="n">path_target41</span> <span class="o">=</span><span class="s2">&quot;./Data/data41.csv&quot;</span>
+    <span class="n">path_target42</span> <span class="o">=</span><span class="s2">&quot;./Data/data42.csv&quot;</span>
+    <span class="n">paths</span><span class="o">=</span><span class="p">[</span><span class="n">path_target1</span><span class="p">,</span><span class="n">path_target2</span><span class="p">,</span><span class="n">path_target3</span><span class="p">,</span><span class="n">path_target41</span><span class="p">,</span><span class="n">path_target42</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">path</span> <span class="p">,</span><span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="kc">None</span><span class="p">,)</span></div>
+   
+<div class="viewcode-block" id="Processdf"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.data.Processdf">[docs]</a><span class="k">class</span> <span class="nc">Processdf</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Processing data</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
-<div class="viewcode-block" id="Processdf.cleaningdf"><a class="viewcode-back" href="../../../potemodule.Prediction.html#potemodule.Prediction.data.Processdf.cleaningdf">[docs]</a>    <span class="k">def</span> <span class="nf">cleaningdf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Processdf.cleaningdf"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.data.Processdf.cleaningdf">[docs]</a>    <span class="k">def</span> <span class="nf">cleaningdf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">        Manipulation du jeu de données de 01/01/2019 jusqu&#39;à 06/12/2022.</span>
+<span class="sd">        </span>
 <span class="sd">        Manipulations:</span>
+
 <span class="sd">                     -Recupérer les colonnes **Date**,**Heure** et **Consommation (MW)**</span>
 <span class="sd">                     -Supprimer les valeurs manquantes </span>
 <span class="sd">                     -Basculer la frequence des observations de **60 min** à **15 min**  </span>
+<span class="sd">        </span>
 <span class="sd">        :return: le jeu de données pour chaque 15 min 01/01/2019 jusqu&#39;à 06/12/2022</span>
 <span class="sd">        </span>
 <span class="sd">        :rtype: Data frame </span>
@@ -192,12 +206,16 @@
                         <span class="n">data41</span><span class="p">,</span> <span class="n">data42</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
         <span class="k">return</span> <span class="n">df</span></div>
 
-<div class="viewcode-block" id="Processdf.df_cleaned"><a class="viewcode-back" href="../../../potemodule.Prediction.html#potemodule.Prediction.data.Processdf.df_cleaned">[docs]</a>    <span class="k">def</span> <span class="nf">df_cleaned</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Processdf.df_cleaned"><a class="viewcode-back" href="../../../Prediction/potemodule.Prediction.html#potemodule.Prediction.data.Processdf.df_cleaned">[docs]</a>    <span class="k">def</span> <span class="nf">df_cleaned</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-        <span class="sd">&quot;&quot;&quot; Récupere la dataframe préte à l&#39;emploit directementt du package en assurant &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nb">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Data/dattfinal.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span> 
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Récupere la dataframe préte à l&#39;emploit directementt du package en assurant</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Data/datafinall.csv&quot;</span><span class="p">)</span> 
+            <span class="c1">#df.set_index(&#39;Temps&#39;)</span>
             <span class="k">return</span> <span class="n">df</span></div></div>
+        
         <span class="c1">#if id==2:</span>
             <span class="c1">#df=pd.read_csv(&quot;./Data/dattfinal_gaz.csv&quot;, sep=&quot;;&quot;) </span>
         <span class="c1">#if id==3:</span>
@@ -206,6 +224,19 @@
     
    
 
+
+<span class="c1"># %%</span>
+<span class="c1">#df=Processdf(1).cleaningdf()</span>
+
+
+<span class="c1">#load()</span>
+<span class="c1"># %%</span>
+<span class="c1">#df.to_csv(&quot;.//Data//datafinall.csv&quot;,sep=&quot;;&quot;,index=False,mode=&#39;w&#39;)</span>
+<span class="c1"># %%</span>
+<span class="c1">#df=Processdf(1).cleaningdf()</span>
+<span class="c1">#ts=Processdf(1).df_cleaned()</span>
+
+<span class="c1"># %%</span>
 </pre></div>
 
            </div>
@@ -218,9 +249,9 @@
     <p>&#169; Copyright 2022, Crespin Paul, Lamrini Oualid, Renoir Thamara, Sinibaldi Emma.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

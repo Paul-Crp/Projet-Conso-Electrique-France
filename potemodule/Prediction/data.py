@@ -22,11 +22,11 @@ def load():
     url41 = "https://bit.ly/3gowmWv"
     url42 = "https://bit.ly/3Ep9TjU"
     urls = [url1, url2, url3, url41, url42]  
-    path_target1 =".//Data//data1.csv"
-    path_target2 =".//Data//data2.csv" 
-    path_target3 =".//Data//data3.csv" 
-    path_target41 =".//Data//data41.csv"
-    path_target42 =".//Data//data42.csv"
+    path_target1 ="./Data/data1.csv"
+    path_target2 ="./Data/data2.csv" 
+    path_target3 ="./Data/data3.csv" 
+    path_target41 ="./Data/data41.csv"
+    path_target42 ="./Data/data42.csv"
     paths=[path_target1,path_target2,path_target3,path_target41,path_target42]
     for i in range(5):
         path ,fname = os.path.split(paths[i])
@@ -42,10 +42,13 @@ class Processdf():
     def cleaningdf(self):
         """ 
         Manipulation du jeu de données de 01/01/2019 jusqu'à 06/12/2022.
+        
         Manipulations:
+
                      -Recupérer les colonnes **Date**,**Heure** et **Consommation (MW)**
                      -Supprimer les valeurs manquantes 
                      -Basculer la frequence des observations de **60 min** à **15 min**  
+        
         :return: le jeu de données pour chaque 15 min 01/01/2019 jusqu'à 06/12/2022
         
         :rtype: Data frame 
@@ -128,9 +131,11 @@ class Processdf():
 
     def df_cleaned(self):
 
-        """ Récupere la dataframe préte à l'emploit directementt du package en assurant """
+        """
+        Récupere la dataframe préte à l'emploit directementt du package en assurant
+        """
         if ( self.id == 1):
-            df = pd.read_csv(".//Data//datafinall.csv") 
+            df = pd.read_csv("./Data/datafinall.csv") 
             #df.set_index('Temps')
             return df
         
