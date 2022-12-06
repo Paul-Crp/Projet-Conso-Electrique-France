@@ -17,7 +17,7 @@ def modelle():
     # muting unnecessary warnings if needed
     # %%____________________________________________-
     #
-    df = read_csv(".data/datafinal.csv")  # data from 2019-01-01 00:00:00 to 2022-11-14 23:45:00
+    df = pd.read_csv("./Data/datafinal.csv")  # data from 2019-01-01 00:00:00 to 2022-11-14 23:45:00
 
     # splitting time series to train and test subsets
     #y_test = df.iloc[-35880:-8064,:].copy()
@@ -79,3 +79,5 @@ def modelle():
 
 
 
+
+# %%
