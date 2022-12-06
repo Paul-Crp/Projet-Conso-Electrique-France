@@ -1,8 +1,8 @@
-Module potemodule.intermap.preprocess
+potemodule.intermap.preprocess package
 ======================================
 
-Sous-modules
--------------
+Submodules
+----------
 
 potemodule.intermap.preprocess.get\_data module
 -----------------------------------------------

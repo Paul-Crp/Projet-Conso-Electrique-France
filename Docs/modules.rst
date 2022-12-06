@@ -1,5 +1,5 @@
-Module POTE
-============
+potemodule
+==========
 
 .. toctree::
    :maxdepth: 4

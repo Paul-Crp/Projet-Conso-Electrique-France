@@ -13,12 +13,12 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-# from Projet_M1 import *
+from potemodule import *
 # from Projet_M1.Prediction import *
 # from Projet_M1.Visualisation import *
 
-master_doc = 'index'
-add_module_names = False
+#master_doc = 'index'
+#add_module_names = False
 
 # -- Project information -----------------------------------------------------
 

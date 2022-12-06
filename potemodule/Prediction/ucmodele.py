@@ -1,7 +1,6 @@
 #%%
 import warnings
 import statsmodels.api as sm
-#import data
 from statsmodels.tools.eval_measures import rmse
 # mathematical operations
 import numpy as np

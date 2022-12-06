@@ -1,8 +1,8 @@
-Visualisation
+potemodule.intermap package
 ===========================
 
-Sous-modules
---------------
+Subpackages
+-----------
 
 .. toctree::
    :maxdepth: 4

@@ -11,9 +11,6 @@ La consommation d'éléctricité en France
    et celle des recoureces :Fioul,Charbon,Gaz,Nucléaire,Eolien er Solaire .
    Ainsi que de la visualisation d'un carte interactive . 
 
-.. toctree::
-   :maxdepth: 2
-   :caption: 
 
 Guide d'installation 
 =====================
@@ -28,12 +25,11 @@ Arborescence du package
 ========================
 .. toctree::
    :maxdepth: 2
-   :caption: Prediction 
+   :caption: Prediction,intermap 
 
    potemodule.Prediction 
    
-
-   ..inter_map
+   potemodule.intermap
 
 
 

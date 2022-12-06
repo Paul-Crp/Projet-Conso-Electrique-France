@@ -1,8 +1,8 @@
-Module potemodule.intermap.vis
+potemodule.intermap.vis package
 ===============================
 
-Sous-modules
--------------
+Submodules
+----------
 
 potemodule.intermap.vis.Carte module
 ------------------------------------
