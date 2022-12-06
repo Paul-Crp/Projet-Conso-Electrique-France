@@ -24,10 +24,9 @@ elif val == "2":
     f=IM.legend(df, IM.carte(df, geo))
 
     os.makedirs('Rendus', exist_ok=True)
+    print("C'est bientôt fini, merci de patienter encore un peu...")
     for i in range(0,23):
         f=IM.Marker(f,i,d)
-        if i == 0:
-            print("C'est bientôt fini, merci de patienter encore un peu...")
 
 
     f.save('Rendus/Carte.html')
