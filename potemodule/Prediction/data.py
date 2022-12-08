@@ -144,7 +144,7 @@ class Processdf():
             df = pd.read_csv("potemodule/Prediction/Data/datafinall.csv")
             return df
         if (self.id == 2):
-            df = pd.read_csv("./Data/datagaz.csv")
+            df = pd.read_csv("potemodule/Prediction/Data/datagaz.csv")
             return df
 
 
